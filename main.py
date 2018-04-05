@@ -4,13 +4,6 @@ from MainFunctions import *
 
 db = Database("localhost", "root", "FLZdown1km$mysql!", "tpapp")
 us = UserProcess(db)
-print(us.new_users())
-test = db.query("SELECT * FROM users")
-print(type(test[0][3]))
-print(range(6))
-us.fill_up_time_users(True)
 
-def tt():
-    pass
+us.distribution_user_pro("sex", groups=[10, 20, 30])
 
-print(type(tt))

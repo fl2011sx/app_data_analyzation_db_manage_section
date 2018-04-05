@@ -6,6 +6,13 @@ import time
 from scipy.interpolate import lagrange
 from inspect import isfunction
 
+#单元素元素转一维列表
+def single_tumple_to_list(tum):
+    result = []
+    for ele in tum:
+        result.append(ele[0])
+    return result
+
 #用户相关
 class UserProcess:
     def __init__(self, database, userTableName = "users", propertiesName = "user_properties", pro_valName = "user_pro_val", operationName = "operation"):
@@ -15,11 +22,8 @@ class UserProcess:
         if not isinstance(database, Database):
             return
         self.db = database
-        properties = self.db.query("SELECT * FROM " + propertiesName)
-        self.properties = []
-        for row in properties:
-            self.properties.append(row[0])
-
+        properties = self.db.query("SELECT user_property FROM " + propertiesName)
+        self.properties = single_tumple_to_list(properties)
 #新用户
     def new_users(self, howNew = 604800): #默认一周内为新用户
         now = int(time.time())
@@ -61,5 +65,36 @@ class UserProcess:
             self.__fill_up(user_id_time, afterFillUp)
             return
         return self.__fill_up(user_id_time)
+##用户群体分析
+    #分析某一个属性的用户分布
+    def distribution_user_pro(self, pro, cal_values = False, groups = None):
+        if not pro in self.properties:
+            return
+        if cal_values:
+            vals = self.db.query("SELECT DISTINCT user_pro_value FROM " + self.pro_valName + " WHERE user_property = \"" + pro + "\"")
+            values = single_tumple_to_list(vals)
+            cal = {}
+            for val in values:
+                count = self.db.query("SELECT COUNT(userid) FROM " + self.pro_valName + " WHERE user_pro_value = \"" + val + "\"")
+                cal[val] = count[0][0]
+            return cal
+        if groups != None and isinstance(groups, list) and len(groups):
+            cal = {}
+            que = "SELECT COUNT(userid) FROM " + self.pro_valName + " WHERE user_pro_value < " + str(groups[0])
+            count = self.db.query(que)
+            cal["<" + str(groups[0])] = count[0][0]
+            for i in range(len(groups) - 1):
+                (left, right) = (groups[i], groups[i + 1])
+                que = "SELECT COUNT(userid) FROM " + self.pro_valName + " WHERE user_pro_value >= " + str(left) + " AND user_pro_value < " + str(right)
+                count = self.db.query(que)
+                section = str(groups[i]) + "-" + str(groups[i + 1])
+                cal[section] = count[0][0]
+            que = "SELECT COUNT(userid) FROM " + self.pro_valName + " WHERE user_pro_value > " + str(groups[len(groups) - 1])
+            count = self.db.query(que)
+            cal[">=" + str(groups[len(groups) - 1])] = count[0][0]
+            return cal
 
+
+
+    #分析某几个属性之间的关联度
 
