@@ -8,4 +8,9 @@ print(us.new_users())
 test = db.query("SELECT * FROM users")
 print(type(test[0][3]))
 print(range(6))
-us.fill_up_time_users()
+us.fill_up_time_users(True)
+
+def tt():
+    pass
+
+print(type(tt))

@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import time
 from scipy.interpolate import lagrange
+from inspect import isfunction
 
 #用户相关
 class UserProcess:
@@ -45,6 +46,8 @@ class UserProcess:
         for (id, ti) in users_id_time:
             if ti == None:
                 ti = lagrange(userid, time)(id)
+                if afterGetFillUp != None and isfunction(afterGetFillUp):
+                    afterGetFillUp(id, ti)
             users_id_time_new.append((id, ti))
         return tuple(users_id_time_new)
 
@@ -52,9 +55,11 @@ class UserProcess:
 
     def fill_up_time_users(self, isOperatingDatabase = False): #采用拉格朗日数据填补算法
         user_id_time = self.db.query("SELECT userid, regist_time FROM " + self.userTableName)
-        test = self.__fill_up(user_id_time)
-        print(test)
-
-        return
+        if isOperatingDatabase:
+            def afterFillUp(id, time):
+                self.db.query("UPDATE " + self.userTableName + " SET regist_time = " + str(time) + " WHERE userid = " + str(id))
+            self.__fill_up(user_id_time, afterFillUp)
+            return
+        return self.__fill_up(user_id_time)
 
 

@@ -8,6 +8,7 @@ class Database:
     def query(self, cmd):
         self.cur.execute(cmd)
         result = self.cur.fetchall()
+        self.db.commit()
         return result
     def getTableColumnsName(self, tableName):
         result = self.query("select COLUMN_NAME from information_schema.COLUMNS where table_name =\"" + tableName + "\" and table_schema = \"" + self.dbName + "\"")
