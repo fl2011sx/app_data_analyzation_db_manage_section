@@ -39,10 +39,12 @@ class UserProcess:
             que += ", PV_" + pro + ".user_pro_value AS " + pro
         que += " FROM " + self.userTableName
         for pro in self.properties:
-            que += " LEFT JOIN " + self.pro_valName + " AS PV_" + pro + " ON " + self.userTableName + ".userid = PV_" + pro + ".userid"
+            que += " LEFT JOIN " + self.pro_valName + " AS PV_" + pro + " ON " + self.userTableName + ".userid = PV_" +\
+                   pro + ".userid AND PV_" + pro + ".user_property = \"" + pro + "\""
         que += " ORDER BY " + self.userTableName + ".userid ASC"
         result = self.db.query(que)
         data = pd.DataFrame(list(result), columns=columns + self.properties)
+        print(que)
         return data
 
 #新用户
@@ -180,3 +182,43 @@ class UserProcess:
         x1_col = x.columns[rlr.get_support()]
         print(x1_col)
 
+    ##通过Excel表格批量注册用户
+    #关于注册时间的处理：
+    #                    useRealTime = True, use_RealTime = False
+    #表格里有regist_time   实际时间                表格时间
+    #表格里没有regist_time  实际时间                 NULL
+    def bash_regist_user_by_xls(self, useRealTime = True, note = None):
+        data = pd.read_excel("/users/hubohao/Desktop/test.xlsx")
+        for row_index in range(len(data)):
+            row = data.loc[row_index]
+            for col in data.columns:
+                from time import time as tm
+                time = tm()
+                if "regist_time" in col and not useRealTime:
+                    time = row[col]
+                if not "regist_time" in col and not useRealTime:
+                    time = None
+                print(col)
+                if col == "regist_time":
+                    continue
+                if col == "username":
+                    #registUser
+                    que = "INSERT INTO " + self.userTableName + "(username"
+                    if (time != None):
+                        que += ", regist_time"
+                    if (note != None):
+                        que += ", note"
+                    que += ") VALUES(\"" + str(row["username"]) + "\""
+                    if (time != None):
+                        que += ", " + str(time)
+                    if (note != None):
+                        que += ", \"" + note + "\""
+                    que += ")"
+                    print(que)
+                    self.db.query(que)
+                else:
+                    #addProperties
+                    que = "INSERT INTO " + self.pro_valName + "(userid, user_property, user_pro_value) SELECT userid, \"" \
+                          + str(col) + "\", \"" + str(row[col]) + "\" FROM " + self.userTableName + " WHERE username = \"" + str(row["username"]) + "\""
+                    print(que)
+                    self.db.query(que)

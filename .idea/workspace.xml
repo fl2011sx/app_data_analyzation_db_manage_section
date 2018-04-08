@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e182e99-4aaa-43d3-90e7-6d0a565af3ba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainFunctions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -20,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/Database.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -28,8 +26,8 @@
       <file leaf-file-name="MainFunctions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="153" column="24" lean-forward="true" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+            <state relative-caret-position="275">
+              <caret line="214" column="44" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
               <folding>
                 <element signature="e#16#45#0" expanded="true" />
               </folding>
@@ -40,8 +38,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="105">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -55,6 +53,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>r</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -63,8 +66,8 @@
       <list>
         <option value="$PROJECT_DIR$/DataBase.py" />
         <option value="$PROJECT_DIR$/Database.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/MainFunctions.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -285,13 +288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/sklearn/utils/deprecation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -302,14 +298,21 @@
     <entry file="file://$PROJECT_DIR$/Database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainFunctions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="153" column="24" lean-forward="true" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+        <state relative-caret-position="275">
+          <caret line="214" column="44" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
           <folding>
             <element signature="e#16#45#0" expanded="true" />
           </folding>
