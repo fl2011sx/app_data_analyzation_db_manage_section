@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    
+signals:
+    void test(int);
+private slots:
+    void test1();
 };
 
 #endif // MAINWINDOW_H
