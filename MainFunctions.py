@@ -15,7 +15,8 @@ def single_tumple_to_list(tum):
 
 #用户相关
 class UserProcess:
-    def __init__(self, database, userTableName = "users", propertiesName = "user_properties", pro_valName = "user_pro_val", operationName = "operation"):
+    def __init__(self, database, userTableName = "users", propertiesName = "user_properties",\
+                 pro_valName = "user_pro_val", operationName = "operation"):
         self.userTableName = userTableName
         self.pro_valName = pro_valName
         self.operationName = operationName
@@ -150,6 +151,7 @@ class UserProcess:
 
         res = self.db.query(que)
         data = pd.DataFrame(np.int64(res))
+        data.columns = pros
         return data
 
     #分析某几个属性之间的关联度
@@ -157,8 +159,11 @@ class UserProcess:
     # 默认采用Pearson相关系数矩阵
     # 所有属性必须是数值型
     def relevancy_user_pro(self, pros):
+        if not isinstance(pros, list):
+            return
+        if len(pros) < 2:
+            return
         data = self.__matrix_user_pro(pros)
-        print(data)
         return data.corr()
 
     #0-1属性因变量的自变量筛选
