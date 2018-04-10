@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPushButton *debugTest = ui -> debugTest;
-    connect(debugTest, SIGNAL(clicked()), this, SLOT(test1()));
+    connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
+
 }
 
 MainWindow::~MainWindow()
@@ -22,9 +22,37 @@ MainWindow::~MainWindow()
 
 
 
-void MainWindow::test1() {
+void MainWindow::showUser() {
     python_func::Database db("127.0.0.1", "root", "FLZdown1km$mysql!", "tpapp");
-    auto data = db.getTableColumnsName("users");
+    python_func::UserProcess up(db.asPyObject());
+    
+    auto data = up.showUsers();
     auto str = python_func::py_to_str(data);
     printf("%s\n", str.c_str());
+    auto matrix = python_func::py_DataFrame_to_matrix(data);
+    printf("%s\n", python_func::py_to_str(matrix).c_str());
+    auto vec = python_func::py_matrix_to_vec2(matrix);
+    for (auto line : vec) {
+        for (auto item : line) {
+            printf("%s\t", item.c_str());
+        }
+        printf("\n");
+    }
+    ui -> displayView -> setRowCount((int)vec.size());
+    ui -> displayView -> setColumnCount((int)vec.at(0).size());
+    auto col = python_func::py_get_DataFrame_columns(data);
+    auto columns = python_func::py_list_to_vector(col);
+    for (unsigned long i = 0; i < columns.size(); i++) {
+        std::string str = columns.at(i);
+        auto item = new QTableWidgetItem;
+        item -> setText(str.c_str());
+        ui -> displayView -> setHorizontalHeaderItem((int)i, item);
+    }
+    for (unsigned long i = 0; i < vec.size(); i++) {
+        for (unsigned long j = 0; j < vec.at(0).size(); j++) {
+            auto item = new QTableWidgetItem;
+            item -> setText(vec.at(i).at(j).c_str());
+            ui -> displayView -> setItem((int)i, (int)j, item);
+        }
+    }
 }

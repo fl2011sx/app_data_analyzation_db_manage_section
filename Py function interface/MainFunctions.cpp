@@ -34,6 +34,49 @@ std::string python_func::py_to_str(PyObject *obj) {
     return ret_str;
 }
 
+std::vector<std::string> python_func::py_list_to_vector(PyObject *list) {
+    long size = PyList_Size(list);
+    std::vector<std::string> vec;
+    for (long i = 0; i < size; i++) {
+        PyObject *obj = PyList_GetItem(list, i);
+        vec.push_back(std::string(PyString_AsString(obj)));
+    }
+    return vec;
+}
+
+std::vector<std::vector<std::string>> python_func::py_matrix_to_vec2(PyObject *list) {
+    long size = PyList_Size(list);
+    std::vector<std::vector<std::string>> vec;
+    for (long i = 0; i < size; i++) {
+        std::vector<std::string> vec_in;
+        auto item = PyList_GetItem(list, i);
+        long size_in = PyList_Size(item);
+        for (long j = 0; j < size_in; j++) {
+            vec_in.push_back(std::string(PyString_AsString(PyList_GetItem(item, j))));
+        }
+        vec.push_back(vec_in);
+    }
+    return vec;
+}
+
+PyObject *python_func::py_DataFrame_to_matrix(PyObject *data) {
+    PyObject *module = PyImport_Import(PyString_FromString("Interface_to_c"));
+    PyObject *func = PyObject_GetAttrString(module, "py_DataFrame_to_matrix");
+    PyObject *arg = PyTuple_New(1);
+    PyTuple_SetItem(arg, 0, data);
+    PyObject *ret = PyObject_CallObject(func, arg);
+    return ret;
+}
+
+PyObject *python_func::py_get_DataFrame_columns(PyObject *data) {
+    PyObject *module = PyImport_Import(PyString_FromString("Interface_to_c"));
+    PyObject *func = PyObject_GetAttrString(module, "py_get_DataFrame_columns");
+    PyObject *arg = PyTuple_New(1);
+    PyTuple_SetItem(arg, 0, data);
+    PyObject *ret = PyObject_CallObject(func, arg);
+    return ret;
+}
+
 using python_func::Database;
 
 Database::Database(const std::string &addr, const std::string &user, const std::string &psw, const std::string &dbName) {
@@ -56,6 +99,10 @@ PyObject *Database::query(const std::string &cmd) {
 PyObject *Database::getTableColumnsName(const std::string &tableName) {
     PyObject *ret = PyObject_CallMethod(py_Database, "getTableColumnsName", "s", tableName.c_str());
     return ret;
+}
+
+PyObject *Database::asPyObject() const {
+    return py_Database;
 }
 
 Database::~Database() {
@@ -126,5 +173,7 @@ void UserProcess::bashRegistUserByXls(const std::string xlsRoot, const std::stri
     PyObject_CallMethod(py_UserProcess, "bash_regist_user_by_xls", "ssi", xlsRoot.c_str(), note.c_str(), userRealTime);
 }
 
+UserProcess::~UserProcess() {
+}
 
 

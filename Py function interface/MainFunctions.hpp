@@ -19,6 +19,10 @@ namespace python_func {
     void endPython();
     void py_print(PyObject *obj);
     std::string py_to_str(PyObject *obj);
+    std::vector<std::string> py_list_to_vector(PyObject *list);
+    std::vector<std::vector<std::string>> py_matrix_to_vec2(PyObject *list);
+    PyObject *py_DataFrame_to_matrix(PyObject *data);
+    PyObject *py_get_DataFrame_columns(PyObject *data);
     
     class Database {
     private:
@@ -28,6 +32,7 @@ namespace python_func {
         PyObject *query(const std::string &cmd);
         PyObject *getTableColumnsName(const std::string &tableName);
         ~Database();
+        PyObject *asPyObject() const;
     };
     
     class UserProcess {

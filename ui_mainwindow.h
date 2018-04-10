@@ -18,6 +18,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -28,7 +29,8 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QPushButton *debugTest;
-    QPushButton *testBtn;
+    QPushButton *showUserBtn;
+    QTableWidget *displayView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -37,19 +39,25 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(756, 493);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         debugTest = new QPushButton(centralWidget);
         debugTest->setObjectName(QStringLiteral("debugTest"));
         debugTest->setGeometry(QRect(10, 200, 113, 32));
-        testBtn = new QPushButton(centralWidget);
-        testBtn->setObjectName(QStringLiteral("testBtn"));
-        testBtn->setGeometry(QRect(10, 130, 113, 32));
+        showUserBtn = new QPushButton(centralWidget);
+        showUserBtn->setObjectName(QStringLiteral("showUserBtn"));
+        showUserBtn->setGeometry(QRect(10, 130, 113, 32));
+        displayView = new QTableWidget(centralWidget);
+        displayView->setObjectName(QStringLiteral("displayView"));
+        displayView->setGeometry(QRect(160, 10, 531, 411));
+        displayView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        displayView->horizontalHeader()->setHighlightSections(true);
+        displayView->verticalHeader()->setVisible(false);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 22));
+        menuBar->setGeometry(QRect(0, 0, 756, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -67,7 +75,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         debugTest->setText(QApplication::translate("MainWindow", "DebugTest", 0));
-        testBtn->setText(QApplication::translate("MainWindow", "PushButton", 0));
+        showUserBtn->setText(QApplication::translate("MainWindow", "\346\230\276\347\244\272\347\224\250\346\210\267\344\277\241\346\201\257", 0));
     } // retranslateUi
 
 };

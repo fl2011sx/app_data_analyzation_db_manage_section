@@ -21,7 +21,7 @@ private:
 signals:
     void test(int);
 private slots:
-    void test1();
+    void showUser();
 };
 
 #endif // MAINWINDOW_H

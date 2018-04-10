@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>756</width>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
      <string>DebugTest</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="testBtn">
+   <widget class="QPushButton" name="showUserBtn">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -37,8 +37,27 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>显示用户信息</string>
     </property>
+   </widget>
+   <widget class="QTableWidget" name="displayView">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>531</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -46,7 +65,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>756</width>
      <height>22</height>
     </rect>
    </property>
