@@ -192,8 +192,9 @@ class UserProcess:
     #                    useRealTime = True, use_RealTime = False
     #表格里有regist_time   实际时间                表格时间
     #表格里没有regist_time  实际时间                 NULL
-    def bash_regist_user_by_xls(self, useRealTime = True, note = None):
-        data = pd.read_excel("/users/hubohao/Desktop/test.xlsx")
+    def bash_regist_user_by_xls(self, xlsRoot, note = None, useRealTime = True):
+        #xlsRoot = "/users/hubohao/Desktop/test.xlsx"
+        data = pd.read_excel(xlsRoot)
         for row_index in range(len(data)):
             row = data.loc[row_index]
             for col in data.columns:

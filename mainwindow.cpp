@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include <QDebug>
 #include <Python/Python.h>
+#include "MainFunctions.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+
 void MainWindow::test1() {
-    
+    python_func::Database db("127.0.0.1", "root", "FLZdown1km$mysql!", "tpapp");
+    auto data = db.getTableColumnsName("users");
+    auto str = python_func::py_to_str(data);
+    printf("%s\n", str.c_str());
 }

@@ -25,6 +25,7 @@
 		01D66869EA24517ABA8C5736 /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 318D23A49F29394E509329A7 /* QtGui.framework */; };
 		15FCDE876B8124DA7DA6C236 /* mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 838679E9B4889375D21EB4E1 /* mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		40D47DA6A7AFEBD80036D8DD /* moc_mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 1D3E4E98CFB8EF548DFC679D /* moc_mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		753EEE01207CA8F400981122 /* Interface_to_c.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 753EEE00207CA8F400981122 /* Interface_to_c.py */; };
 		75EB649C207BC2810095CE0D /* MainFunctions.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB635F207BC2800095CE0D /* MainFunctions.py */; };
 		75EB649E207BC2810095CE0D /* Database.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB6361207BC2800095CE0D /* Database.py */; };
 		75EB65AF207BC2810095CE0D /* main.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB649A207BC2810095CE0D /* main.py */; };
@@ -54,6 +55,7 @@
 		225408536E45DF373C31DF4A /* ui_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_mainwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_mainwindow.h; sourceTree = "<absolute>"; };
 		2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
 		318D23A49F29394E509329A7 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework; sourceTree = "<absolute>"; };
+		753EEE00207CA8F400981122 /* Interface_to_c.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Interface_to_c.py; sourceTree = "<group>"; };
 		75EB635F207BC2800095CE0D /* MainFunctions.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = MainFunctions.py; sourceTree = "<group>"; };
 		75EB6361207BC2800095CE0D /* Database.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Database.py; sourceTree = "<group>"; };
 		75EB649A207BC2810095CE0D /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				75EB635F207BC2800095CE0D /* MainFunctions.py */,
 				75EB6361207BC2800095CE0D /* Database.py */,
 				75EB649A207BC2810095CE0D /* main.py */,
+				753EEE00207CA8F400981122 /* Interface_to_c.py */,
 			);
 			path = data_analyze_section;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75EB65AF207BC2810095CE0D /* main.py in Copy Bundle Resources */,
+				753EEE01207CA8F400981122 /* Interface_to_c.py in Copy Bundle Resources */,
 				75EB649C207BC2810095CE0D /* MainFunctions.py in Copy Bundle Resources */,
 				75EB649E207BC2810095CE0D /* Database.py in Copy Bundle Resources */,
 			);
