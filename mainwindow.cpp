@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QPushButton>
 #include <QDebug>
+#include <Python/Python.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,5 +19,5 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::test1() {
-    qDebug("hahahahah\n");
+    
 }

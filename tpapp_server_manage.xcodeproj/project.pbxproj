@@ -25,6 +25,10 @@
 		01D66869EA24517ABA8C5736 /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 318D23A49F29394E509329A7 /* QtGui.framework */; };
 		15FCDE876B8124DA7DA6C236 /* mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 838679E9B4889375D21EB4E1 /* mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		40D47DA6A7AFEBD80036D8DD /* moc_mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 1D3E4E98CFB8EF548DFC679D /* moc_mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		75EB649C207BC2810095CE0D /* MainFunctions.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB635F207BC2800095CE0D /* MainFunctions.py */; };
+		75EB649E207BC2810095CE0D /* Database.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB6361207BC2800095CE0D /* Database.py */; };
+		75EB65AF207BC2810095CE0D /* main.py in Copy Bundle Resources */ = {isa = PBXBuildFile; fileRef = 75EB649A207BC2810095CE0D /* main.py */; };
+		75EB65B3207BC3450095CE0D /* MainFunctions.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 75EB65B1207BC3450095CE0D /* MainFunctions.cpp */; };
 		844F20003BC94C6BB8E52735 /* QtCore.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = ADD2B39F8E7A3F4B45DCE51D /* QtCore.framework */; };
 		8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = D4B32C2222F82AC56BADEB21 /* OpenGL.framework */; };
 		8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = A1A67BEAA744704B29168D39 /* IOKit.framework */; };
@@ -50,6 +54,11 @@
 		225408536E45DF373C31DF4A /* ui_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_mainwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_mainwindow.h; sourceTree = "<absolute>"; };
 		2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
 		318D23A49F29394E509329A7 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework; sourceTree = "<absolute>"; };
+		75EB635F207BC2800095CE0D /* MainFunctions.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = MainFunctions.py; sourceTree = "<group>"; };
+		75EB6361207BC2800095CE0D /* Database.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Database.py; sourceTree = "<group>"; };
+		75EB649A207BC2810095CE0D /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		75EB65B1207BC3450095CE0D /* MainFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainFunctions.cpp; sourceTree = "<group>"; };
+		75EB65B2207BC3450095CE0D /* MainFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainFunctions.hpp; sourceTree = "<group>"; };
 		76D104859A4B715BC94CCFAF /* tpapp_server_manage.pro */ = {isa = PBXFileReference; lastKnownFileType = text; name = tpapp_server_manage.pro; path = /Users/hubohao/Desktop/tpapp_server_manage/tpapp_server_manage.pro; sourceTree = "<absolute>"; };
 		838679E9B4889375D21EB4E1 /* mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mainwindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/mainwindow.cpp; sourceTree = "<absolute>"; };
 		8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -116,6 +125,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		75EB635D207BC2800095CE0D /* data_analyze_section */ = {
+			isa = PBXGroup;
+			children = (
+				75EB635F207BC2800095CE0D /* MainFunctions.py */,
+				75EB6361207BC2800095CE0D /* Database.py */,
+				75EB649A207BC2810095CE0D /* main.py */,
+			);
+			path = data_analyze_section;
+			sourceTree = "<group>";
+		};
+		75EB65B0207BC31C0095CE0D /* Py function interface */ = {
+			isa = PBXGroup;
+			children = (
+				75EB65B1207BC3450095CE0D /* MainFunctions.cpp */,
+				75EB65B2207BC3450095CE0D /* MainFunctions.hpp */,
+			);
+			path = "Py function interface";
+			sourceTree = "<group>";
+		};
 		AF39DD055C3EF8226FBE929D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +161,14 @@
 		E8C543AB96796ECAA2E65C57 /* tpapp_server_manage */ = {
 			isa = PBXGroup;
 			children = (
+				75EB65B0207BC31C0095CE0D /* Py function interface */,
 				2EB56BE3C2D93CDAB0C52E67 /* Sources */,
 				25B08E2869634E9BCBA333A2 /* Generated Sources */,
 				74B182DB50CB5611B5C1C297 /* Supporting Files */,
 				12E908B8A1C3C07C115504F5 /* Sources [uic] */,
 				AF39DD055C3EF8226FBE929D /* Frameworks */,
 				FE0A091FDBFB3E9C31B7A1BD /* Products */,
+				75EB635D207BC2800095CE0D /* data_analyze_section */,
 			);
 			name = tpapp_server_manage;
 			sourceTree = "<group>";
@@ -203,6 +233,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EB65AF207BC2810095CE0D /* main.py in Copy Bundle Resources */,
+				75EB649C207BC2810095CE0D /* MainFunctions.py in Copy Bundle Resources */,
+				75EB649E207BC2810095CE0D /* Database.py in Copy Bundle Resources */,
 			);
 			name = "Copy Bundle Resources";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EB65B3207BC3450095CE0D /* MainFunctions.cpp in Compile Sources */,
 				BEF6DCC0AD159C8FBE67FF7C /* main.cpp in Compile Sources */,
 				15FCDE876B8124DA7DA6C236 /* mainwindow.cpp in Compile Sources */,
 				40D47DA6A7AFEBD80036D8DD /* moc_mainwindow.cpp in Compile Sources */,
@@ -343,6 +377,8 @@
 					"-stdlib=libc++",
 					"-Wl,-rpath,/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
 					"-F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
+					"-I/usr/include/python2.7/",
+					"-lpython2.7",
 				);
 				PRODUCT_NAME = tpapp_server_manage;
 				QT_LIBRARY_SUFFIX = "";
@@ -440,6 +476,8 @@
 					"-stdlib=libc++",
 					"-Wl,-rpath,/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
 					"-F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
+					"-I/usr/include/python2.7/",
+					"-lpython2.7",
 				);
 				PRODUCT_NAME = tpapp_server_manage;
 				QT_LIBRARY_SUFFIX = _debug;
