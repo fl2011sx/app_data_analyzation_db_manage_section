@@ -3,7 +3,7 @@
 #include <QPushButton>
 #include <QDebug>
 #include <Python/Python.h>
-#include "MainFunctions.hpp"
+#include "Py_function_interface/MainFunctions.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

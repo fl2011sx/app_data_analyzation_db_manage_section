@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "MainFunctions.hpp"
+#include "Py_function_interface/MainFunctions.hpp"
 
 int main(int argc, char *argv[])
 {

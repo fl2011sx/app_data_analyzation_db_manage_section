@@ -46,6 +46,21 @@
 					);
 			};
 		};
+		372A96CA008A00EF6CE8F8DA = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/Py_function_interface/MainFunctions.cpp";
+			name = "MainFunctions.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		B880607E19AEE85A271F0C81 = {
+			fileRef = "372A96CA008A00EF6CE8F8DA";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		1D3E4E98CFB8EF548DFC679D = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_mainwindow.cpp";
@@ -72,6 +87,13 @@
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/mainwindow.h";
 			name = "mainwindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		16E98C43B65A34B37C7A0285 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/Py_function_interface/MainFunctions.hpp";
+			name = "MainFunctions.hpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
@@ -110,11 +132,20 @@
 			name = "Generated Sources";
 			sourceTree = "<group>";
 		};
+		A5E8AD085EAC4A5B85118BA7 = {
+			isa = PBXGroup;
+			children = (
+				"372A96CA008A00EF6CE8F8DA",
+				"16E98C43B65A34B37C7A0285");
+			name = "Py_function_interface";
+			sourceTree = "<group>";
+		};
 		2EB56BE3C2D93CDAB0C52E67 = {
 			isa = PBXGroup;
 			children = (
 				"9A98DEE86682A56FBEF06382",
 				"838679E9B4889375D21EB4E1",
+				"A5E8AD085EAC4A5B85118BA7",
 				"E2A31CDBFA6DF5CECDE64708");
 			name = "Sources";
 			sourceTree = "<group>";
@@ -150,10 +181,37 @@
 			files = (
 				"BEF6DCC0AD159C8FBE67FF7C",
 				"15FCDE876B8124DA7DA6C236",
+				"B880607E19AEE85A271F0C81",
 				"40D47DA6A7AFEBD80036D8DD");
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Compile Sources";
+		};
+		A64343B5FCB74A6D5C487FA9 = {
+			isa = PBXFileReference;
+			name = "";
+			path = "/System/Library/Frameworks/Python.framework/Versions/2.7/lib";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		BAFCF362A34A554CA8EA9A54 = {
+			fileRef = "A64343B5FCB74A6D5C487FA9";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7D261A0B941E5D8C57CF4A1D = {
+			isa = PBXFileReference;
+			name = "python2.7";
+			path = "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		8112681DD65E0F8AC3F970BC = {
+			fileRef = "7D261A0B941E5D8C57CF4A1D";
+			isa = PBXBuildFile;
+			settings = {
+			};
 		};
 		CF503970E6F0B294D1A672E8 = {
 			isa = PBXFileReference;
@@ -255,6 +313,8 @@
 		};
 		AF39DD055C3EF8226FBE929D = {
 			children = (
+				"A64343B5FCB74A6D5C487FA9",
+				"7D261A0B941E5D8C57CF4A1D",
 				"CF503970E6F0B294D1A672E8",
 				"318D23A49F29394E509329A7",
 				"ADD2B39F8E7A3F4B45DCE51D",
@@ -269,6 +329,8 @@
 		D1C883685E82D5676953459A = {
 			buildActionMask = 2147483647;
 			files = (
+				"BAFCF362A34A554CA8EA9A54",
+				"8112681DD65E0F8AC3F970BC",
 				"BDFD9BFAE33A3F5C771DB1CC",
 				"01D66869EA24517ABA8C5736",
 				"844F20003BC94C6BB8E52735",
@@ -367,6 +429,8 @@
 				MACOSX_DEPLOYMENT_TARGET = "10.8";
 				HEADER_SEARCH_PATHS = (
 					".",
+					"-I",
+					"/usr/include/Python",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers",
@@ -376,6 +440,7 @@
 					".",
 					"../../Qt5.7.0/5.7/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
+					"/System/Library/Frameworks/Python.framework/Versions/2.7/lib",
 					"/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
 					"/System/Library/Frameworks/");
 				FRAMEWORK_SEARCH_PATHS = (
@@ -445,6 +510,8 @@
 				MACOSX_DEPLOYMENT_TARGET = "10.8";
 				HEADER_SEARCH_PATHS = (
 					".",
+					"-I",
+					"/usr/include/Python",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers",
 					"../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers",
@@ -454,6 +521,7 @@
 					".",
 					"../../Qt5.7.0/5.7/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
+					"/System/Library/Frameworks/Python.framework/Versions/2.7/lib",
 					"/Users/hubohao/Qt5.7.0/5.7/clang_64/lib",
 					"/System/Library/Frameworks/");
 				FRAMEWORK_SEARCH_PATHS = (
