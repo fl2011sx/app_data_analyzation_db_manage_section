@@ -14,6 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QListView>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,12 +23,24 @@ QT_BEGIN_NAMESPACE
 class Ui_UserManageWindow
 {
 public:
+    QPushButton *refreshListBtn;
+    QListView *listView;
+    QPushButton *addProBtn;
 
     void setupUi(QWidget *UserManageWindow)
     {
         if (UserManageWindow->objectName().isEmpty())
             UserManageWindow->setObjectName(QStringLiteral("UserManageWindow"));
-        UserManageWindow->resize(400, 300);
+        UserManageWindow->resize(492, 382);
+        refreshListBtn = new QPushButton(UserManageWindow);
+        refreshListBtn->setObjectName(QStringLiteral("refreshListBtn"));
+        refreshListBtn->setGeometry(QRect(10, 50, 113, 32));
+        listView = new QListView(UserManageWindow);
+        listView->setObjectName(QStringLiteral("listView"));
+        listView->setGeometry(QRect(140, 10, 341, 361));
+        addProBtn = new QPushButton(UserManageWindow);
+        addProBtn->setObjectName(QStringLiteral("addProBtn"));
+        addProBtn->setGeometry(QRect(10, 90, 113, 32));
 
         retranslateUi(UserManageWindow);
 
@@ -36,6 +50,8 @@ public:
     void retranslateUi(QWidget *UserManageWindow)
     {
         UserManageWindow->setWindowTitle(QApplication::translate("UserManageWindow", "Form", 0));
+        refreshListBtn->setText(QApplication::translate("UserManageWindow", "\345\210\267\346\226\260\345\210\227\350\241\250", 0));
+        addProBtn->setText(QApplication::translate("UserManageWindow", "\346\267\273\345\212\240\345\261\236\346\200\247", 0));
     } // retranslateUi
 
 };

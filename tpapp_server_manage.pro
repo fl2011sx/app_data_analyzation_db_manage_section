@@ -16,10 +16,15 @@ INCLUDEPATH += -I /usr/include/Python
 
 SOURCES += main.cpp\
         mainwindow.cpp\
-        Py_function_interface/MainFunctions.cpp
+        Py_function_interface/MainFunctions.cpp\
+        usermanagewindow.cpp\
+        global.cpp
 
 HEADERS  += mainwindow.h\
-            Py_function_interface/MainFunctions.hpp
+            Py_function_interface/MainFunctions.hpp\
+            usermanagewindow.h\
+            global.hpp
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui\
+            usermanagewindow.ui
 QT += widgets

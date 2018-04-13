@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <Python/Python.h>
 #include "Py_function_interface/MainFunctions.hpp"
+#include "usermanagewindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
-
+    connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
 }
 
 MainWindow::~MainWindow()
@@ -20,11 +21,14 @@ MainWindow::~MainWindow()
 }
 
 
-
+void MainWindow::showUserManageWindow() {
+    auto userManageWindow = new UserManageWindow;
+    userManageWindow -> show();
+}
 
 void MainWindow::showUser() {
-    python_func::Database db("127.0.0.1", "root", "FLZdown1km$mysql!", "tpapp");
-    python_func::UserProcess up(db.asPyObject());
+    if (!database) {return;}
+    python_func::UserProcess up(database -> asPyObject());
     
     auto data = up.showUsers();
     auto str = python_func::py_to_str(data);

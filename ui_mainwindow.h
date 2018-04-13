@@ -31,6 +31,7 @@ public:
     QPushButton *debugTest;
     QPushButton *showUserBtn;
     QTableWidget *displayView;
+    QPushButton *userManageBtn;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -54,6 +55,9 @@ public:
         displayView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         displayView->horizontalHeader()->setHighlightSections(true);
         displayView->verticalHeader()->setVisible(false);
+        userManageBtn = new QPushButton(centralWidget);
+        userManageBtn->setObjectName(QStringLiteral("userManageBtn"));
+        userManageBtn->setGeometry(QRect(10, 250, 113, 32));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -76,6 +80,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         debugTest->setText(QApplication::translate("MainWindow", "DebugTest", 0));
         showUserBtn->setText(QApplication::translate("MainWindow", "\346\230\276\347\244\272\347\224\250\346\210\267\344\277\241\346\201\257", 0));
+        userManageBtn->setText(QApplication::translate("MainWindow", "\347\256\241\347\220\206\347\224\250\346\210\267\344\277\241\346\201\257", 0));
     } // retranslateUi
 
 };

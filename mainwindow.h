@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
+#include "global.hpp"
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +24,7 @@ signals:
     void test(int);
 private slots:
     void showUser();
+    void showUserManageWindow();
 };
 
 #endif // MAINWINDOW_H
