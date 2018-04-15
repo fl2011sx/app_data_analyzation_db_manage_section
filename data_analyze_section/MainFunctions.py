@@ -26,6 +26,10 @@ class UserProcess:
         properties = self.db.query("SELECT user_property FROM " + propertiesName)
         self.properties = single_tumple_to_list(properties)
 
+#显示用户属性
+    def showProperties(self):
+        return self.properties
+
 #拼接属性后显示用户信息
     def showUsers(self):
         columns = self.db.getTableColumnsName(self.userTableName)

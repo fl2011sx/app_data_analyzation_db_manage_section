@@ -139,6 +139,7 @@ PyObject *UserProcess::fillUpUsers(bool isOperatingDatabase) {
     PyObject *ret = PyObject_CallMethod(py_UserProcess, "fill_up_time_users", "i", isOperatingDatabase);
     return ret;
 }
+
 PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_values, std::vector<int> *groups) {
     PyObject *ret;
     if (!groups) {
@@ -152,6 +153,7 @@ PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_valu
     }
     return ret;
 }
+
 PyObject *UserProcess::relevancyUserPro(std::vector<std::string> &pros) {
     PyObject *list_pros = PyList_New(pros.size());
     for (std::vector<std::string>::iterator iter = pros.begin(); iter != pros.end(); iter++) {
@@ -160,6 +162,7 @@ PyObject *UserProcess::relevancyUserPro(std::vector<std::string> &pros) {
     PyObject *ret = PyObject_CallMethod(py_UserProcess, "relevancy_user_pro", "O", list_pros);
     return ret;
 }
+
 PyObject *UserProcess::valFiltrate(const std::string &dp_var, std::vector<std::string> &id_vars) {
     PyObject *list_id_vars = PyList_New(id_vars.size());
     for (std::vector<std::string>::iterator iter = id_vars.begin(); iter != id_vars.end(); iter++) {
@@ -176,4 +179,7 @@ void UserProcess::bashRegistUserByXls(const std::string xlsRoot, const std::stri
 UserProcess::~UserProcess() {
 }
 
+PyObject *UserProcess::showProperties() {
+    PyObject_CallMethod(py_UserProcess, "showProperties", nullptr);
+}
 

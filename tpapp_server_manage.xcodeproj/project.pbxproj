@@ -23,10 +23,12 @@
 
 /* Begin PBXBuildFile section */
 		01D66869EA24517ABA8C5736 /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 318D23A49F29394E509329A7 /* QtGui.framework */; };
+		082E8F1DE3FE081C865C6C3E /* global.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = B3475C98216B6C60FF095591 /* global.cpp */; settings = {ATTRIBUTES = (); }; };
 		0AF8D83EB136ADA2250D5B10 /* moc_usermanagewindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = DF536CA65BF17E78157FC183 /* moc_usermanagewindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		0D92A72A9D006572F3176F72 /* welcomewindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = AD27CFBFFC9935092014B4E5 /* welcomewindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		15FCDE876B8124DA7DA6C236 /* mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 838679E9B4889375D21EB4E1 /* mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		40D47DA6A7AFEBD80036D8DD /* moc_mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 1D3E4E98CFB8EF548DFC679D /* moc_mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
-		7589FB9B2080A76F00DF19C9 /* global.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 7589FB992080A76F00DF19C9 /* global.cpp */; };
+		4E5165578E6530BBFD91DEA9 /* moc_welcomewindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 808818BA768EBFF26DF6E2A7 /* moc_welcomewindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		8112681DD65E0F8AC3F970BC /* python2.7 in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 7D261A0B941E5D8C57CF4A1D /* python2.7 */; };
 		844F20003BC94C6BB8E52735 /* QtCore.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = ADD2B39F8E7A3F4B45DCE51D /* QtCore.framework */; };
 		8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = D4B32C2222F82AC56BADEB21 /* OpenGL.framework */; };
@@ -37,11 +39,13 @@
 		BAFCF362A34A554CA8EA9A54 /* /System/Library/Frameworks/Python.framework/Versions/2.7/lib in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = A64343B5FCB74A6D5C487FA9 /* /System/Library/Frameworks/Python.framework/Versions/2.7/lib */; };
 		BDFD9BFAE33A3F5C771DB1CC /* QtWidgets.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = CF503970E6F0B294D1A672E8 /* QtWidgets.framework */; };
 		BEF6DCC0AD159C8FBE67FF7C /* main.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 9A98DEE86682A56FBEF06382 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
+		DC3686E61BE5BE9020AEA9AA /* moc_loginwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 15A2247641D792CB3FDDAAC8 /* moc_loginwindow.cpp */; settings = {ATTRIBUTES = (); }; };
 		E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */; };
+		FBC021764CD36AAA99599474 /* loginwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 9AD0E67AC3D9DA47ECF04748 /* loginwindow.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7589FB9820809AFC00DF19C9 /* PBXContainerItemProxy */ = {
+		75B8586820833E160076D908 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DB9C3763D02B1415CD9D565 /* Project object */;
 			proxyType = 1;
@@ -52,30 +56,40 @@
 
 /* Begin PBXFileReference section */
 		0EDBE7BC9AA37CDF1F965E81 /* tpapp_server_manage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tpapp_server_manage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15A2247641D792CB3FDDAAC8 /* moc_loginwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_loginwindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/moc_loginwindow.cpp; sourceTree = "<absolute>"; };
 		16E98C43B65A34B37C7A0285 /* MainFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainFunctions.hpp; path = /Users/hubohao/Desktop/tpapp_server_manage/Py_function_interface/MainFunctions.hpp; sourceTree = "<absolute>"; };
 		1D3E4E98CFB8EF548DFC679D /* moc_mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_mainwindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/moc_mainwindow.cpp; sourceTree = "<absolute>"; };
 		204A462FB25F8F2A6B230A0A /* .qmake.stash */ = {isa = PBXFileReference; lastKnownFileType = text; name = .qmake.stash; path = /Users/hubohao/Desktop/tpapp_server_manage/.qmake.stash; sourceTree = "<absolute>"; };
 		225408536E45DF373C31DF4A /* ui_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_mainwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_mainwindow.h; sourceTree = "<absolute>"; };
 		2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
 		318D23A49F29394E509329A7 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework; sourceTree = "<absolute>"; };
+		3422E2ABE2541C6B62C32A40 /* loginwindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = loginwindow.ui; path = /Users/hubohao/Desktop/tpapp_server_manage/loginwindow.ui; sourceTree = "<absolute>"; };
 		372A96CA008A00EF6CE8F8DA /* MainFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainFunctions.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/Py_function_interface/MainFunctions.cpp; sourceTree = "<absolute>"; };
+		3DAFF7C365300F4C64D8E458 /* welcomewindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = welcomewindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/welcomewindow.h; sourceTree = "<absolute>"; };
 		41037AAF035B8F81F13BBD2D /* usermanagewindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = usermanagewindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/usermanagewindow.cpp; sourceTree = "<absolute>"; };
-		7589FB992080A76F00DF19C9 /* global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = global.cpp; sourceTree = "<group>"; };
-		7589FB9A2080A76F00DF19C9 /* global.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = global.hpp; sourceTree = "<group>"; };
+		47E4BCA6D9B05D0665FC901B /* global.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = global.hpp; path = /Users/hubohao/Desktop/tpapp_server_manage/global.hpp; sourceTree = "<absolute>"; };
+		5D2A2A6B20D0D60FB8FA78C0 /* ui_loginwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_loginwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_loginwindow.h; sourceTree = "<absolute>"; };
 		76D104859A4B715BC94CCFAF /* tpapp_server_manage.pro */ = {isa = PBXFileReference; lastKnownFileType = text; name = tpapp_server_manage.pro; path = /Users/hubohao/Desktop/tpapp_server_manage/tpapp_server_manage.pro; sourceTree = "<absolute>"; };
 		7D261A0B941E5D8C57CF4A1D /* python2.7 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = python2.7; path = /System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib; sourceTree = "<absolute>"; };
+		808818BA768EBFF26DF6E2A7 /* moc_welcomewindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_welcomewindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/moc_welcomewindow.cpp; sourceTree = "<absolute>"; };
 		838679E9B4889375D21EB4E1 /* mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mainwindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/mainwindow.cpp; sourceTree = "<absolute>"; };
+		8CFF3F91BFA7FFFF4F36EAFD /* ui_welcomewindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_welcomewindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_welcomewindow.h; sourceTree = "<absolute>"; };
 		8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		981B3529BBC3F60E7F2820E3 /* mainwindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = mainwindow.ui; path = /Users/hubohao/Desktop/tpapp_server_manage/mainwindow.ui; sourceTree = "<absolute>"; };
+		984972183AE91F78E9178A39 /* loginwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = loginwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/loginwindow.h; sourceTree = "<absolute>"; };
 		9A98DEE86682A56FBEF06382 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/main.cpp; sourceTree = "<absolute>"; };
+		9AD0E67AC3D9DA47ECF04748 /* loginwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = loginwindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/loginwindow.cpp; sourceTree = "<absolute>"; };
 		A1A67BEAA744704B29168D39 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		A64343B5FCB74A6D5C487FA9 /* /System/Library/Frameworks/Python.framework/Versions/2.7/lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = /System/Library/Frameworks/Python.framework/Versions/2.7/lib; sourceTree = "<absolute>"; };
+		AD27CFBFFC9935092014B4E5 /* welcomewindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = welcomewindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/welcomewindow.cpp; sourceTree = "<absolute>"; };
 		ADD2B39F8E7A3F4B45DCE51D /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework; sourceTree = "<absolute>"; };
 		B1A5BA12EABE1363CFC0643E /* usermanagewindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = usermanagewindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/usermanagewindow.h; sourceTree = "<absolute>"; };
+		B3475C98216B6C60FF095591 /* global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = global.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/global.cpp; sourceTree = "<absolute>"; };
 		C04AD710308465975BA6EE37 /* usermanagewindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = usermanagewindow.ui; path = /Users/hubohao/Desktop/tpapp_server_manage/usermanagewindow.ui; sourceTree = "<absolute>"; };
 		CF503970E6F0B294D1A672E8 /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = /Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework; sourceTree = "<absolute>"; };
 		CF9D73E81B96B7B77EB29311 /* ui_usermanagewindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_usermanagewindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/ui_usermanagewindow.h; sourceTree = "<absolute>"; };
 		D4B32C2222F82AC56BADEB21 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		DD495186DB6D667820EE80F7 /* welcomewindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = welcomewindow.ui; path = /Users/hubohao/Desktop/tpapp_server_manage/welcomewindow.ui; sourceTree = "<absolute>"; };
 		DF536CA65BF17E78157FC183 /* moc_usermanagewindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_usermanagewindow.cpp; path = /Users/hubohao/Desktop/tpapp_server_manage/moc_usermanagewindow.cpp; sourceTree = "<absolute>"; };
 		E2A31CDBFA6DF5CECDE64708 /* mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mainwindow.h; path = /Users/hubohao/Desktop/tpapp_server_manage/mainwindow.h; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -104,8 +118,10 @@
 		12E908B8A1C3C07C115504F5 /* Sources [uic] */ = {
 			isa = PBXGroup;
 			children = (
+				3422E2ABE2541C6B62C32A40 /* loginwindow.ui */,
 				981B3529BBC3F60E7F2820E3 /* mainwindow.ui */,
 				C04AD710308465975BA6EE37 /* usermanagewindow.ui */,
+				DD495186DB6D667820EE80F7 /* welcomewindow.ui */,
 			);
 			name = "Sources [uic]";
 			sourceTree = "<group>";
@@ -115,8 +131,12 @@
 			children = (
 				1D3E4E98CFB8EF548DFC679D /* moc_mainwindow.cpp */,
 				DF536CA65BF17E78157FC183 /* moc_usermanagewindow.cpp */,
+				808818BA768EBFF26DF6E2A7 /* moc_welcomewindow.cpp */,
+				15A2247641D792CB3FDDAAC8 /* moc_loginwindow.cpp */,
+				5D2A2A6B20D0D60FB8FA78C0 /* ui_loginwindow.h */,
 				225408536E45DF373C31DF4A /* ui_mainwindow.h */,
 				CF9D73E81B96B7B77EB29311 /* ui_usermanagewindow.h */,
+				8CFF3F91BFA7FFFF4F36EAFD /* ui_welcomewindow.h */,
 			);
 			name = "Generated Sources";
 			sourceTree = "<group>";
@@ -124,14 +144,18 @@
 		2EB56BE3C2D93CDAB0C52E67 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A5E8AD085EAC4A5B85118BA7 /* Py_function_interface */,
 				9A98DEE86682A56FBEF06382 /* main.cpp */,
+				A5E8AD085EAC4A5B85118BA7 /* Py_function_interface */,
+				41037AAF035B8F81F13BBD2D /* usermanagewindow.cpp */,
+				B3475C98216B6C60FF095591 /* global.cpp */,
+				3DAFF7C365300F4C64D8E458 /* welcomewindow.h */,
+				AD27CFBFFC9935092014B4E5 /* welcomewindow.cpp */,
+				984972183AE91F78E9178A39 /* loginwindow.h */,
+				9AD0E67AC3D9DA47ECF04748 /* loginwindow.cpp */,
 				E2A31CDBFA6DF5CECDE64708 /* mainwindow.h */,
 				838679E9B4889375D21EB4E1 /* mainwindow.cpp */,
 				B1A5BA12EABE1363CFC0643E /* usermanagewindow.h */,
-				41037AAF035B8F81F13BBD2D /* usermanagewindow.cpp */,
-				7589FB992080A76F00DF19C9 /* global.cpp */,
-				7589FB9A2080A76F00DF19C9 /* global.hpp */,
+				47E4BCA6D9B05D0665FC901B /* global.hpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -282,9 +306,13 @@
 				15FCDE876B8124DA7DA6C236 /* mainwindow.cpp in Compile Sources */,
 				B880607E19AEE85A271F0C81 /* MainFunctions.cpp in Compile Sources */,
 				B2FDBFE8EC66D4E16245AC93 /* usermanagewindow.cpp in Compile Sources */,
+				082E8F1DE3FE081C865C6C3E /* global.cpp in Compile Sources */,
+				0D92A72A9D006572F3176F72 /* welcomewindow.cpp in Compile Sources */,
+				FBC021764CD36AAA99599474 /* loginwindow.cpp in Compile Sources */,
 				40D47DA6A7AFEBD80036D8DD /* moc_mainwindow.cpp in Compile Sources */,
-				7589FB9B2080A76F00DF19C9 /* global.cpp in Compile Sources */,
 				0AF8D83EB136ADA2250D5B10 /* moc_usermanagewindow.cpp in Compile Sources */,
+				4E5165578E6530BBFD91DEA9 /* moc_welcomewindow.cpp in Compile Sources */,
+				DC3686E61BE5BE9020AEA9AA /* moc_loginwindow.cpp in Compile Sources */,
 			);
 			name = "Compile Sources";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +323,7 @@
 		45FCCAD98FC0DEC906AB3055 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D1F182064380CB8D615E0BCE /* Qt Preprocess */;
-			targetProxy = 7589FB9820809AFC00DF19C9 /* PBXContainerItemProxy */;
+			targetProxy = 75B8586820833E160076D908 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

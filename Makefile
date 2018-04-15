@@ -15,7 +15,7 @@ CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefau
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.8 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.8 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I. -I../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I../../Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib
+INCPATH       = -I. -I-I -isystem /usr/include/Python -I../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I../../Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib
 QMAKE         = /Users/hubohao/Qt5.7.0/5.7/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = tpapp_server_manage1.0.0
 DISTDIR = /Users/hubohao/Desktop/tpapp_server_manage/.tmp/tpapp_server_manage1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.8 -Wl,-rpath,/Users/hubohao/Qt5.7.0/5.7/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib /System/Library/Frameworks/Python.framework/Versions/2.7/lib/ -lpython2.7 -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -49,10 +49,18 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		mainwindow.cpp moc_mainwindow.cpp
+		mainwindow.cpp \
+		Py_function_interface/MainFunctions.cpp \
+		usermanagewindow.cpp \
+		global.cpp moc_mainwindow.cpp \
+		moc_usermanagewindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
-		moc_mainwindow.o
+		MainFunctions.o \
+		usermanagewindow.o \
+		global.o \
+		moc_mainwindow.o \
+		moc_usermanagewindow.o
 DIST          = ../../Qt5.7.0/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt5.7.0/5.7/clang_64/mkspecs/qdevice.pri \
 		../../Qt5.7.0/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -211,8 +219,14 @@ DIST          = ../../Qt5.7.0/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt5.7.0/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../Qt5.7.0/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt5.7.0/5.7/clang_64/mkspecs/features/lex.prf \
-		tpapp_server_manage.pro mainwindow.h main.cpp \
-		mainwindow.cpp
+		tpapp_server_manage.pro mainwindow.h \
+		Py_function_interface/MainFunctions.hpp \
+		usermanagewindow.h \
+		global.hpp main.cpp \
+		mainwindow.cpp \
+		Py_function_interface/MainFunctions.cpp \
+		usermanagewindow.cpp \
+		global.cpp
 QMAKE_TARGET  = tpapp_server_manage
 DESTDIR       = 
 TARGET        = tpapp_server_manage.app/Contents/MacOS/tpapp_server_manage
@@ -221,7 +235,7 @@ TARGET        = tpapp_server_manage.app/Contents/MacOS/tpapp_server_manage
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_usermanagewindow.h $(OBJECTS)  
 	@test -d tpapp_server_manage.app/Contents/MacOS/ || mkdir -p tpapp_server_manage.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -579,9 +593,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h Py_function_interface/MainFunctions.hpp usermanagewindow.h global.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp Py_function_interface/MainFunctions.cpp usermanagewindow.cpp global.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui usermanagewindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -607,23 +621,37 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp
 moc_mainwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
 		mainwindow.h \
 		../../Qt5.7.0/5.7/clang_64/bin/moc
-	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib mainwindow.h -o moc_mainwindow.cpp
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib mainwindow.h -o moc_mainwindow.cpp
+
+moc_usermanagewindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
+		usermanagewindow.h \
+		../../Qt5.7.0/5.7/clang_64/bin/moc
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib usermanagewindow.h -o moc_usermanagewindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_usermanagewindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_usermanagewindow.h
 ui_mainwindow.h: mainwindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic mainwindow.ui -o ui_mainwindow.h
+
+ui_usermanagewindow.h: usermanagewindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic usermanagewindow.ui -o ui_usermanagewindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -640,25 +668,47 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 main.o: main.cpp mainwindow.h \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		Py_function_interface/MainFunctions.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
 		ui_mainwindow.h \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		usermanagewindow.h \
-		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h
+		Py_function_interface/MainFunctions.hpp \
+		usermanagewindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
+
+MainFunctions.o: Py_function_interface/MainFunctions.cpp Py_function_interface/MainFunctions.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainFunctions.o Py_function_interface/MainFunctions.cpp
+
+usermanagewindow.o: usermanagewindow.cpp usermanagewindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
+		ui_usermanagewindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o usermanagewindow.o usermanagewindow.cpp
+
+global.o: global.cpp global.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o global.o global.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_usermanagewindow.o: moc_usermanagewindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_usermanagewindow.o moc_usermanagewindow.cpp
 
 ####### Install
 

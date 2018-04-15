@@ -30,29 +30,51 @@ check: first
 
 benchmark: first
 
-compilers: moc_mainwindow.cpp moc_usermanagewindow.cpp ui_mainwindow.h ui_usermanagewindow.h
+compilers: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp\
+	 moc_loginwindow.cpp ui_loginwindow.h ui_mainwindow.h ui_usermanagewindow.h\
+	 ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp
 moc_mainwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
 		mainwindow.h \
 		../../Qt5.7.0/5.7/clang_64/bin/moc
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib mainwindow.h -o moc_mainwindow.cpp
 
 moc_usermanagewindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		global.hpp \
 		usermanagewindow.h \
 		../../Qt5.7.0/5.7/clang_64/bin/moc
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib usermanagewindow.h -o moc_usermanagewindow.cpp
 
+moc_welcomewindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		welcomewindow.h \
+		../../Qt5.7.0/5.7/clang_64/bin/moc
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib welcomewindow.h -o moc_welcomewindow.cpp
+
+moc_loginwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		loginwindow.h \
+		../../Qt5.7.0/5.7/clang_64/bin/moc
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib loginwindow.h -o moc_loginwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_usermanagewindow.h
+compiler_uic_make_all: ui_loginwindow.h ui_mainwindow.h ui_usermanagewindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_usermanagewindow.h
+	-$(DEL_FILE) ui_loginwindow.h ui_mainwindow.h ui_usermanagewindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h
+ui_loginwindow.h: loginwindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic loginwindow.ui -o ui_loginwindow.h
+
 ui_mainwindow.h: mainwindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -60,6 +82,18 @@ ui_mainwindow.h: mainwindow.ui \
 ui_usermanagewindow.h: usermanagewindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic usermanagewindow.ui -o ui_usermanagewindow.h
+
+ui_welcomewindow.h: welcomewindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic welcomewindow.ui -o ui_welcomewindow.h
+
+ui_welcomewindow.h: welcomewindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic welcomewindow.ui -o ui_welcomewindow.h
+
+ui_loginwindow.h: loginwindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic loginwindow.ui -o ui_loginwindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:

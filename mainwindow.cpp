@@ -8,15 +8,14 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+    ui(new Ui::MainWindow) {
     ui->setupUi(this);
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
+    
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
@@ -29,7 +28,7 @@ void MainWindow::showUserManageWindow() {
 void MainWindow::showUser() {
     if (!database) {return;}
     python_func::UserProcess up(database -> asPyObject());
-    
+
     auto data = up.showUsers();
     auto str = python_func::py_to_str(data);
     printf("%s\n", str.c_str());

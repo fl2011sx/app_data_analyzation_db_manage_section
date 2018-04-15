@@ -41,6 +41,7 @@ namespace python_func {
     public:
         UserProcess(PyObject *db);
         ~UserProcess();
+        PyObject *showProperties();
         PyObject *showUsers();
         PyObject *newUsers(int howNew = 604800);
         PyObject *activityUsers(int howNew = 604800);

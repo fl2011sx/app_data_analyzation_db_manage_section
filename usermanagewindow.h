@@ -2,6 +2,8 @@
 #define USERMANAGEWINDOW_H
 
 #include <QWidget>
+#include "global.hpp"
+#include "MainFunctions.hpp"
 
 namespace Ui {
 class UserManageWindow;
