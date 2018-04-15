@@ -19,8 +19,8 @@ void LoginWindow::connectDatabase() {
     QString addr = ui -> addressFiled -> text();
     initDatabase(addr.toStdString(), username.toStdString(), psw.toStdString(), "tpapp");
     if (database) {
-        mainWindow -> show();
         close();
+        mainWindow -> show();
     }
 }
 

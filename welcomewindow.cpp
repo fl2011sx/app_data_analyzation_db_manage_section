@@ -12,8 +12,8 @@ WelcomeWindow::WelcomeWindow(QWidget *parent) :
 }
 
 void WelcomeWindow::openSystem() {
-    loginWindow -> show();
     close();
+    loginWindow -> show();
 }
 
 WelcomeWindow::~WelcomeWindow()

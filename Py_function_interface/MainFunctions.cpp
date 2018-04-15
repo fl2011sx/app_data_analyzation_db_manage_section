@@ -183,3 +183,28 @@ PyObject *UserProcess::showProperties() {
     PyObject_CallMethod(py_UserProcess, "showProperties", nullptr);
 }
 
+void python_func::drawBarChart(std::vector<double> &data, const std::string &save_root, const std::string &x_title, const std::string &title, const double width, const double gap, const std::string &color, const bool grid, const bool show) {
+    PyObject *list = PyList_New(0);
+    for (std::vector<double>::iterator iter = data.begin(); iter != data.end(); iter++) {
+        PyList_Append(list, PyFloat_FromDouble(*iter));
+    }
+    py_print(list);
+    drawBarChart(list, save_root, x_title, title, width, gap, color, grid, true);
+}
+
+void python_func::drawBarChart(PyObject *data, const std::string &save_root, const std::string &x_title, const std::string &title, const double width, const double gap, const std::string &color, const bool grid, const bool show) {
+    PyObject *module = PyImport_Import(PyString_FromString("MainFunctions"));
+    PyObject *func = PyObject_GetAttrString(module, "draw_bar_chart");
+    PyObject *arg = PyTuple_New(9);
+    PyTuple_SetItem(arg, 0, data);
+    PyTuple_SetItem(arg, 1, x_title == "" ? Py_None :  PyString_FromString(x_title.c_str()));
+    PyTuple_SetItem(arg, 2, PyString_FromString(title.c_str()));
+    PyTuple_SetItem(arg, 3, PyFloat_FromDouble(width));
+    PyTuple_SetItem(arg, 4, PyFloat_FromDouble(gap));
+    PyTuple_SetItem(arg, 5, PyString_FromString(color.c_str()));
+    PyTuple_SetItem(arg, 6, PyBool_FromLong(grid));
+    PyTuple_SetItem(arg, 7, save_root == ""? Py_None : PyString_FromString(save_root.c_str()));
+    PyTuple_SetItem(arg, 8, PyBool_FromLong(show));
+    PyObject_CallObject(func, arg);
+}
+

@@ -52,7 +52,9 @@ namespace python_func {
         void bashRegistUserByXls(const std::string xlsRoot, const std::string &note = "", bool userRealTime = true);
     };
     
-    
+    // 辅助函数
+    void drawBarChart(std::vector<double> &data, const std::string &save_root = "", const std::string &x_title = "", const std::string &title = "", const double width = 0.5, const double gap = 0.1, const std::string &color = "blue", const bool grid = false, const bool show = false);
+    void drawBarChart(PyObject *data, const std::string &save_root = "", const std::string &x_title = "", const std::string &title = "", const double width = 0.5, const double gap = 0.1, const std::string &color = "blue", const bool grid = false, const bool show = false);
 }
 
 #endif /* MainFunctions_hpp */

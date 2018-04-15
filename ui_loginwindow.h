@@ -68,7 +68,7 @@ public:
     {
         LoginWindow->setWindowTitle(QApplication::translate("LoginWindow", "Form", 0));
         connectBtn->setText(QApplication::translate("LoginWindow", "\350\277\236\346\216\245", 0));
-        pswFiled->setText(QString());
+        pswFiled->setText(QApplication::translate("LoginWindow", "FLZdown1km$mysql!", 0));
         usernameFile->setText(QApplication::translate("LoginWindow", "root", 0));
         label->setText(QApplication::translate("LoginWindow", "\347\231\273\345\275\225\350\272\253\344\273\275", 0));
         label_2->setText(QApplication::translate("LoginWindow", "\345\257\206\347\240\201", 0));

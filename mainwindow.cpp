@@ -12,11 +12,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
-    
+    connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::debugTest() {
+    double arr[] = {2, 5.8, 4, 7.5};
+    std::vector<double> ve(arr, arr + 3);
+    python_func::drawBarChart(ve, "/Users/hubohao/Desktop/test.png");
 }
 
 

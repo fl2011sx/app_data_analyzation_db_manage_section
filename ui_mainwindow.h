@@ -32,6 +32,9 @@ public:
     QPushButton *showUserBtn;
     QTableWidget *displayView;
     QPushButton *userManageBtn;
+    QPushButton *statisticsBtn;
+    QPushButton *dependencyBtn;
+    QPushButton *forecastBtn;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -58,6 +61,15 @@ public:
         userManageBtn = new QPushButton(centralWidget);
         userManageBtn->setObjectName(QStringLiteral("userManageBtn"));
         userManageBtn->setGeometry(QRect(10, 250, 113, 32));
+        statisticsBtn = new QPushButton(centralWidget);
+        statisticsBtn->setObjectName(QStringLiteral("statisticsBtn"));
+        statisticsBtn->setGeometry(QRect(10, 300, 113, 32));
+        dependencyBtn = new QPushButton(centralWidget);
+        dependencyBtn->setObjectName(QStringLiteral("dependencyBtn"));
+        dependencyBtn->setGeometry(QRect(10, 340, 113, 32));
+        forecastBtn = new QPushButton(centralWidget);
+        forecastBtn->setObjectName(QStringLiteral("forecastBtn"));
+        forecastBtn->setGeometry(QRect(10, 380, 113, 32));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,6 +93,9 @@ public:
         debugTest->setText(QApplication::translate("MainWindow", "DebugTest", 0));
         showUserBtn->setText(QApplication::translate("MainWindow", "\346\230\276\347\244\272\347\224\250\346\210\267\344\277\241\346\201\257", 0));
         userManageBtn->setText(QApplication::translate("MainWindow", "\347\256\241\347\220\206\347\224\250\346\210\267\344\277\241\346\201\257", 0));
+        statisticsBtn->setText(QApplication::translate("MainWindow", "\345\210\206\345\270\203\347\273\237\350\256\241", 0));
+        dependencyBtn->setText(QApplication::translate("MainWindow", "\347\233\270\345\205\263\346\200\247\345\210\206\346\236\220", 0));
+        forecastBtn->setText(QApplication::translate("MainWindow", "\346\225\260\345\200\274\351\242\204\346\265\213", 0));
     } // retranslateUi
 
 };

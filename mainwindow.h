@@ -25,6 +25,8 @@ signals:
 private slots:
     void showUser();
     void showUserManageWindow();
+    
+    void debugTest();
 };
 
 #endif // MAINWINDOW_H

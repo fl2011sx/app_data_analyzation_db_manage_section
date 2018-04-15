@@ -232,3 +232,35 @@ class UserProcess:
                           + str(col) + "\", \"" + str(row[col]) + "\" FROM " + self.userTableName + " WHERE username = \"" + str(row["username"]) + "\""
                     print(que)
                     self.db.query(que)
+
+##辅助方法
+#绘制条形图
+def draw_bar_chart(data, x_title = None, title = "", width = 0.5, gap = 0.1, color = "blue", grid = False, save_root = None, show = False):
+    print("--------")
+    print(data, x_title, title, width, gap, color, grid, save_root, show)
+    print("--------")
+    import matplotlib.pyplot as plt
+    if x_title == None:
+        x_title = range(len(data))
+    fig = plt.figure(1)
+    ax1 = plt.subplot(111)
+    x_bar = map(lambda x: x * (width + gap), range(len(data)))
+    rect = ax1.bar(left=x_bar, height=data, width=width, color=color)
+
+    for ele in rect:
+        x = ele.get_x()
+        h = ele.get_height()
+        ax1.text(x + width / 2, h + 0.1, str(h), ha="center")
+    
+    x_mark = map(lambda x: x + width / 2, x_bar)
+    
+    ax1.set_xticks(x_mark)  # x轴每隔多少进行标点
+    ax1.set_xticklabels(x_title)
+    ax1.set_title(title)
+    ax1.grid(grid)  # 显示网格
+    if save_root != None and isinstance(save_root, str):
+        plt.savefig(save_root)
+    if show:
+        plt.show()
+
+draw_bar_chart([2.0, 5.8, 4.0], None, '', 0.5, 0.1, 'blue', False, '/Users/hubohao/Desktop/test.png', True)

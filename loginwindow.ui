@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>FLZdown1km$mysql!</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="usernameFile">
