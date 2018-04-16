@@ -11,10 +11,13 @@
 #include <Python/Python.h>
 #include <string>
 #include "MainFunctions.hpp"
+#include "waitingwindow.h"
+#include <functional>
 
 extern python_func::Database *database;
 
 void initDatabase(const std::string &addr, const std::string &user, const std::string &psw, const std::string &dbName);
+
 
 
 #endif /* global_hpp */

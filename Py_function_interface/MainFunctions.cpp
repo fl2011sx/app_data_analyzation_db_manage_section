@@ -189,7 +189,7 @@ void python_func::drawBarChart(std::vector<double> &data, const std::string &sav
         PyList_Append(list, PyFloat_FromDouble(*iter));
     }
     py_print(list);
-    drawBarChart(list, save_root, x_title, title, width, gap, color, grid, true);
+    drawBarChart(list, save_root, x_title, title, width, gap, color, grid, show);
 }
 
 void python_func::drawBarChart(PyObject *data, const std::string &save_root, const std::string &x_title, const std::string &title, const double width, const double gap, const std::string &color, const bool grid, const bool show) {

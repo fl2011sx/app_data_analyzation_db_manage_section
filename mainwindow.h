@@ -25,6 +25,7 @@ signals:
 private slots:
     void showUser();
     void showUserManageWindow();
+    void showStatisticsWindow();
     
     void debugTest();
 };

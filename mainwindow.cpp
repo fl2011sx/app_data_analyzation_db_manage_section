@@ -5,6 +5,7 @@
 #include <Python/Python.h>
 #include "Py_function_interface/MainFunctions.hpp"
 #include "usermanagewindow.h"
+#include "statisticswindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
     connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));
+        connect(ui -> statisticsBtn, SIGNAL(clicked()), this, SLOT(showStatisticsWindow()));
 }
 
 MainWindow::~MainWindow() {
@@ -29,6 +31,11 @@ void MainWindow::debugTest() {
 void MainWindow::showUserManageWindow() {
     auto userManageWindow = new UserManageWindow;
     userManageWindow -> show();
+}
+
+void MainWindow::showStatisticsWindow() {
+    auto statisticsWindow = new StatisticsWindow;
+    statisticsWindow -> show();
 }
 
 void MainWindow::showUser() {

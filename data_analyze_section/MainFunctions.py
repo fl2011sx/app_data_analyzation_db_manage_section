@@ -240,13 +240,16 @@ def draw_bar_chart(data, x_title = None, title = "", width = 0.5, gap = 0.1, col
     print(data, x_title, title, width, gap, color, grid, save_root, show)
     print("--------")
     import matplotlib.pyplot as plt
+    print("mark1--------")
     if x_title == None:
         x_title = range(len(data))
+    print("mark2--------")
     fig = plt.figure(1)
     ax1 = plt.subplot(111)
     x_bar = map(lambda x: x * (width + gap), range(len(data)))
+    print("mark3--------")
     rect = ax1.bar(left=x_bar, height=data, width=width, color=color)
-
+    print("mark--------")
     for ele in rect:
         x = ele.get_x()
         h = ele.get_height()
@@ -262,5 +265,4 @@ def draw_bar_chart(data, x_title = None, title = "", width = 0.5, gap = 0.1, col
         plt.savefig(save_root)
     if show:
         plt.show()
-
-draw_bar_chart([2.0, 5.8, 4.0], None, '', 0.5, 0.1, 'blue', False, '/Users/hubohao/Desktop/test.png', True)
+    print("end--------")

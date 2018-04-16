@@ -20,15 +20,23 @@ SOURCES += main.cpp\
         usermanagewindow.cpp\
         global.cpp \
     welcomewindow.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    statisticswindow.cpp \
+    waitingwindow.cpp \
+    waitingthread.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
             usermanagewindow.h\
             global.hpp \
     welcomewindow.h \
-    loginwindow.h
+    loginwindow.h \
+    statisticswindow.h \
+    waitingwindow.h \
+    waitingthread.h
 
 FORMS    += *.ui \
     welcomewindow.ui \
-    loginwindow.ui
+    loginwindow.ui \
+    statisticswindow.ui \
+    waitingwindow.ui
