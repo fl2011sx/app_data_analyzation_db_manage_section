@@ -4,12 +4,14 @@
 #include <QWidget>
 #include "global.hpp"
 #include <QTableWidgetItem>
+#include "groupsetwindow.h"
+
 
 namespace Ui {
 class StatisticsWindow;
 }
 
-class StatisticsWindow : public QWidget
+class StatisticsWindow : public QWidget, public GroupSetWindowDelegate
 {
     Q_OBJECT
 
@@ -17,6 +19,7 @@ public:
     explicit StatisticsWindow(QWidget *parent = 0);
     ~StatisticsWindow();
     void run();
+    void afterGetData(std::vector<double> &group);
     
 public slots:
     void after_running();

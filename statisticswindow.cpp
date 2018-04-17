@@ -46,6 +46,11 @@ void StatisticsWindow::singleStatistic() {
 }
 
 void StatisticsWindow::aeraStatistic() {
+    auto groupSetWindow = new GroupSetWindow(this);
+    groupSetWindow -> show();
+}
+
+void StatisticsWindow::afterGetData(std::vector<double> &group) {
     
 }
 
@@ -77,6 +82,7 @@ void StatisticsWindow::after_running() {
 
 void StatisticsWindow::debugTest() {
     run();
+    
     after_running();
 }
 

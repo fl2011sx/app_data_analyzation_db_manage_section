@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     loginwindow.cpp \
     statisticswindow.cpp \
     waitingwindow.cpp \
-    waitingthread.cpp
+    waitingthread.cpp \
+    groupsetwindow.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
@@ -33,10 +34,12 @@ HEADERS  += mainwindow.h\
     loginwindow.h \
     statisticswindow.h \
     waitingwindow.h \
-    waitingthread.h
+    waitingthread.h \
+    groupsetwindow.h
 
 FORMS    += *.ui \
     welcomewindow.ui \
     loginwindow.ui \
     statisticswindow.ui \
-    waitingwindow.ui
+    waitingwindow.ui \
+    groupsetwindow.ui

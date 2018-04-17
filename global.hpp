@@ -10,7 +10,7 @@
 
 #include <Python/Python.h>
 #include <string>
-#include "MainFunctions.hpp"
+#include "Py_function_interface/MainFunctions.hpp"
 #include "waitingwindow.h"
 #include <functional>
 
