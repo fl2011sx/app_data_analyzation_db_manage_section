@@ -236,9 +236,16 @@ class UserProcess:
 ##辅助方法
 #绘制条形图
 def draw_bar_chart(data, x_title = None, title = "", width = 0.5, gap = 0.1, color = "blue", grid = False, save_root = None, show = False):
-    print("--------")
     print(data, x_title, title, width, gap, color, grid, save_root, show)
-    print("--------")
+    if isinstance(data, dict):
+        x_title = []
+        val = []
+        for key in data:
+            x_title.append(key)
+            val.append(data[key])
+        data = val
+        print(data)
+        print(x_title)
     import matplotlib.pyplot as plt
     print("mark1--------")
     if x_title == None:

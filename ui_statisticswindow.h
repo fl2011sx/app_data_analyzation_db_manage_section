@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +26,9 @@ class Ui_StatisticsWindow
 public:
     QPushButton *pushButton;
     QLabel *image;
+    QPushButton *singlePointBtn;
+    QPushButton *aeraBtn;
+    QTableWidget *proList;
 
     void setupUi(QWidget *StatisticsWindow)
     {
@@ -33,10 +37,21 @@ public:
         StatisticsWindow->resize(809, 647);
         pushButton = new QPushButton(StatisticsWindow);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 150, 113, 32));
+        pushButton->setGeometry(QRect(10, 430, 113, 32));
         image = new QLabel(StatisticsWindow);
         image->setObjectName(QStringLiteral("image"));
         image->setGeometry(QRect(170, 10, 631, 631));
+        singlePointBtn = new QPushButton(StatisticsWindow);
+        singlePointBtn->setObjectName(QStringLiteral("singlePointBtn"));
+        singlePointBtn->setGeometry(QRect(10, 200, 113, 32));
+        aeraBtn = new QPushButton(StatisticsWindow);
+        aeraBtn->setObjectName(QStringLiteral("aeraBtn"));
+        aeraBtn->setGeometry(QRect(10, 230, 113, 32));
+        proList = new QTableWidget(StatisticsWindow);
+        proList->setObjectName(QStringLiteral("proList"));
+        proList->setGeometry(QRect(0, 0, 151, 191));
+        proList->horizontalHeader()->setVisible(false);
+        proList->verticalHeader()->setVisible(false);
 
         retranslateUi(StatisticsWindow);
 
@@ -48,6 +63,8 @@ public:
         StatisticsWindow->setWindowTitle(QApplication::translate("StatisticsWindow", "Form", 0));
         pushButton->setText(QApplication::translate("StatisticsWindow", "DebugTest", 0));
         image->setText(QString());
+        singlePointBtn->setText(QApplication::translate("StatisticsWindow", "\345\215\225\347\202\271\347\273\237\350\256\241", 0));
+        aeraBtn->setText(QApplication::translate("StatisticsWindow", "\345\214\272\351\227\264\347\273\237\350\256\241", 0));
     } // retranslateUi
 
 };

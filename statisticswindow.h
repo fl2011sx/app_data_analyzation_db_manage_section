@@ -3,13 +3,13 @@
 
 #include <QWidget>
 #include "global.hpp"
-#include "waitingthread.h"
+#include <QTableWidgetItem>
 
 namespace Ui {
 class StatisticsWindow;
 }
 
-class StatisticsWindow : public QWidget, public WaitingThreadDelegate
+class StatisticsWindow : public QWidget
 {
     Q_OBJECT
 
@@ -26,6 +26,10 @@ private:
     
 private slots:
     void debugTest();
+    void proListItemSelected(QTableWidgetItem *item);
+    void proListItemChanged();
+    void singleStatistic();
+    void aeraStatistic();
 };
 
 #endif // STATISTICSWINDOW_H

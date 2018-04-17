@@ -9,12 +9,15 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow) {
+    ui(new Ui::MainWindow)
+{
     ui->setupUi(this);
+    ui -> displayView -> setEditTriggers(QAbstractItemView::NoEditTriggers);
+    
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
     connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));
-        connect(ui -> statisticsBtn, SIGNAL(clicked()), this, SLOT(showStatisticsWindow()));
+    connect(ui -> statisticsBtn, SIGNAL(clicked()), this, SLOT(showStatisticsWindow()));
 }
 
 MainWindow::~MainWindow() {
