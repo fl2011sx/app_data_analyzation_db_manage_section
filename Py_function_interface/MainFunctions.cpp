@@ -140,14 +140,14 @@ PyObject *UserProcess::fillUpUsers(bool isOperatingDatabase) {
     return ret;
 }
 
-PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_values, std::vector<int> *groups) {
+PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_values, std::vector<double> *groups) {
     PyObject *ret;
     if (!groups) {
         ret = PyObject_CallMethod(py_UserProcess, "distribution_user_pro", "si", pro.c_str(), cal_values);
     } else {
-        PyObject *list_groups = PyList_New(groups -> size());
-        for (std::vector<int>::iterator iter = groups -> begin(); iter != groups -> end(); iter++) {
-            PyList_Append(list_groups, PyInt_FromLong(*iter));
+        PyObject *list_groups = PyList_New(0);
+        for (std::vector<double>::iterator iter = groups -> begin(); iter != groups -> end(); iter++) {
+            PyList_Append(list_groups, PyFloat_FromDouble(*iter));
         }
         ret = PyObject_CallMethod(py_UserProcess, "distribution_user_pro", "siO", pro.c_str(), cal_values, list_groups);
     }

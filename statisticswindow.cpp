@@ -46,12 +46,19 @@ void StatisticsWindow::singleStatistic() {
 }
 
 void StatisticsWindow::aeraStatistic() {
-    auto groupSetWindow = new GroupSetWindow(this);
+    auto groupSetWindow = new GroupSetWindow(this, ui -> proList -> selectedItems().at(0) -> text().toStdString());
     groupSetWindow -> show();
 }
 
-void StatisticsWindow::afterGetData(std::vector<double> &group) {
-    
+void StatisticsWindow::afterGetData(const std::string &pro, std::vector<double> group) {
+    for (auto ele : group) {
+        qDebug() << ele;
+    }
+    python_func::UserProcess up(database -> asPyObject());
+    auto res = up.distributionUserPro(pro, false, &group);
+//    python_func::py_print(res);
+    python_func::drawBarChart(res, "showGraph.png");
+    after_running();
 }
 
 void StatisticsWindow::proListItemSelected(QTableWidgetItem *) {

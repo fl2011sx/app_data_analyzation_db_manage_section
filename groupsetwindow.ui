@@ -74,6 +74,9 @@
      <height>381</height>
     </rect>
    </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
   </widget>
  </widget>
  <resources/>

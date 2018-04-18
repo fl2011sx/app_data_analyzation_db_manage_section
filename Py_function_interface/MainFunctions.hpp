@@ -46,7 +46,7 @@ namespace python_func {
         PyObject *newUsers(int howNew = 604800);
         PyObject *activityUsers(int howNew = 604800);
         PyObject *fillUpUsers(bool isOperatingDatabase = false);
-        PyObject *distributionUserPro(const std::string &pro, bool cal_values = false, std::vector<int> *groups = nullptr);
+        PyObject *distributionUserPro(const std::string &pro, bool cal_values = false, std::vector<double> *groups = nullptr);
         PyObject *relevancyUserPro(std::vector<std::string> &pros);
         PyObject *valFiltrate(const std::string &dp_var, std::vector<std::string> &id_vars);
         void bashRegistUserByXls(const std::string xlsRoot, const std::string &note = "", bool userRealTime = true);

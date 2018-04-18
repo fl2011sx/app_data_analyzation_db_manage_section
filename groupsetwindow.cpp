@@ -1,10 +1,12 @@
 #include "groupsetwindow.h"
 #include "ui_groupsetwindow.h"
+#include <QDebug>
 
-GroupSetWindow::GroupSetWindow(GroupSetWindowDelegate *delegate, QWidget *parent) :
+GroupSetWindow::GroupSetWindow(GroupSetWindowDelegate *delegate, const std::string &pro, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GroupSetWindow),
-    delegate(delegate)
+    delegate(delegate),
+    pro(pro)
 {
     ui->setupUi(this);
     connect(ui -> addBtn, &QPushButton::clicked, this, &GroupSetWindow::addItem);
@@ -34,7 +36,16 @@ void GroupSetWindow::empty() {
 }
 
 void GroupSetWindow::confirm() {
-    
+    std::vector<double> data;
+    for (int i = 0; i < ui -> groupTable -> rowCount(); i++) {
+        auto item = ui -> groupTable -> item(i, 0);
+        data.push_back(item -> text().toDouble());
+    }
+    if (delegate) {
+        qDebug() << pro.c_str();
+        delegate -> afterGetData(pro, data);
+    }
+    close();
 }
 
 GroupSetWindow::~GroupSetWindow()

@@ -19,7 +19,7 @@ public:
     explicit StatisticsWindow(QWidget *parent = 0);
     ~StatisticsWindow();
     void run();
-    void afterGetData(std::vector<double> &group);
+    void afterGetData(const std::string &pro, std::vector<double> group);
     
 public slots:
     void after_running();

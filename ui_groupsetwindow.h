@@ -49,6 +49,7 @@ public:
         groupTable = new QTableWidget(GroupSetWindow);
         groupTable->setObjectName(QStringLiteral("groupTable"));
         groupTable->setGeometry(QRect(0, 0, 421, 381));
+        groupTable->horizontalHeader()->setVisible(false);
 
         retranslateUi(GroupSetWindow);
 
