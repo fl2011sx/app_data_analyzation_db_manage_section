@@ -5,6 +5,7 @@ import numpy as np
 import time
 from scipy.interpolate import lagrange
 from inspect import isfunction
+from collections import OrderedDict
 
 #单元素元素转一维列表
 def single_tumple_to_list(tum):
@@ -111,7 +112,7 @@ class UserProcess:
                 cal[val] = count[0][0]
             return cal
         if groups != None and isinstance(groups, list) and len(groups):
-            cal = {}
+            cal = OrderedDict()
             que = "SELECT COUNT(userid) FROM " + self.pro_valName + " WHERE user_pro_value < " + str(groups[0])
             count = self.db.query(que)
             cal["<" + str(groups[0])] = count[0][0]
@@ -197,7 +198,6 @@ class UserProcess:
     #表格里有regist_time   实际时间                表格时间
     #表格里没有regist_time  实际时间                 NULL
     def bash_regist_user_by_xls(self, xlsRoot, note = None, useRealTime = True):
-        #xlsRoot = "/users/hubohao/Desktop/test.xlsx"
         data = pd.read_excel(xlsRoot)
         for row_index in range(len(data)):
             row = data.loc[row_index]
@@ -272,4 +272,5 @@ def draw_bar_chart(data, x_title = None, title = "", width = 0.5, gap = 0.1, col
         plt.savefig(save_root)
     if show:
         plt.show()
+    plt.close("all")
     print("end--------")

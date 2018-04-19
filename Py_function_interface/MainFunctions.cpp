@@ -77,6 +77,15 @@ PyObject *python_func::py_get_DataFrame_columns(PyObject *data) {
     return ret;
 }
 
+PyObject *python_func::py_get_DataFrame_rows(PyObject *data) {
+    PyObject *module = PyImport_Import(PyString_FromString("Interface_to_c"));
+    PyObject *func = PyObject_GetAttrString(module, "py_get_DataFrame_rows");
+    PyObject *arg = PyTuple_New(1);
+    PyTuple_SetItem(arg, 0, data);
+    PyObject *ret = PyObject_CallObject(func, arg);
+    return ret;
+}
+
 using python_func::Database;
 
 Database::Database(const std::string &addr, const std::string &user, const std::string &psw, const std::string &dbName) {
@@ -155,7 +164,7 @@ PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_valu
 }
 
 PyObject *UserProcess::relevancyUserPro(std::vector<std::string> &pros) {
-    PyObject *list_pros = PyList_New(pros.size());
+    PyObject *list_pros = PyList_New(0);
     for (std::vector<std::string>::iterator iter = pros.begin(); iter != pros.end(); iter++) {
         PyList_Append(list_pros, PyString_FromString(iter -> c_str()));
     }

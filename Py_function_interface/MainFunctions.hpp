@@ -23,6 +23,7 @@ namespace python_func {
     std::vector<std::vector<std::string>> py_matrix_to_vec2(PyObject *list);
     PyObject *py_DataFrame_to_matrix(PyObject *data);
     PyObject *py_get_DataFrame_columns(PyObject *data);
+    PyObject *py_get_DataFrame_rows(PyObject *data);
     
     class Database {
     private:

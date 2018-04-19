@@ -41,6 +41,7 @@ void GroupSetWindow::confirm() {
         auto item = ui -> groupTable -> item(i, 0);
         data.push_back(item -> text().toDouble());
     }
+    std::sort(data.begin(), data.end());
     if (delegate) {
         qDebug() << pro.c_str();
         delegate -> afterGetData(pro, data);

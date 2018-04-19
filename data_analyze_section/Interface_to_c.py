@@ -18,3 +18,7 @@ def py_DataFrame_to_matrix(data):
 def py_get_DataFrame_columns(data):
     col = data.columns.tolist();
     return col
+
+def py_get_DataFrame_rows(data):
+    row = data.index.tolist()
+    return row

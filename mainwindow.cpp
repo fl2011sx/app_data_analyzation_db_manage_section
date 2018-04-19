@@ -6,6 +6,7 @@
 #include "Py_function_interface/MainFunctions.hpp"
 #include "usermanagewindow.h"
 #include "statisticswindow.h"
+#include "dependencywindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
     connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));
     connect(ui -> statisticsBtn, SIGNAL(clicked()), this, SLOT(showStatisticsWindow()));
+    connect(ui -> dependencyBtn, &QPushButton::clicked, this, &MainWindow::showDependencyWindow);
 }
 
 MainWindow::~MainWindow() {
@@ -30,6 +32,10 @@ void MainWindow::debugTest() {
     python_func::drawBarChart(ve, "/Users/hubohao/Desktop/test.png");
 }
 
+void MainWindow::showDependencyWindow() {
+    auto dw = new dependencyWindow;
+    dw -> show();
+}
 
 void MainWindow::showUserManageWindow() {
     auto userManageWindow = new UserManageWindow;
