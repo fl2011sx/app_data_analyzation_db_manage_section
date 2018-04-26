@@ -211,6 +211,21 @@
 					);
 			};
 		};
+		B4B550E58E0C609BAB354EBF = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/addpropertywindow.cpp";
+			name = "addpropertywindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		1C54B7F22A7E9E119703F478 = {
+			fileRef = "B4B550E58E0C609BAB354EBF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		1D3E4E98CFB8EF548DFC679D = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_mainwindow.cpp";
@@ -361,6 +376,28 @@
 					);
 			};
 		};
+		01F12AAA3442A80A2FABA5D6 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_addpropertywindow.cpp";
+			name = "moc_addpropertywindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		5266916B05FF0E22532F2C3A = {
+			fileRef = "01F12AAA3442A80A2FABA5D6";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		EBB952033A0E185D390CE248 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_addpropertywindow.h";
+			name = "ui_addpropertywindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
 		35AD1549BAC52A3474804080 = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_dependencywindow.h";
@@ -508,6 +545,20 @@
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
+		4E5747FE8A3E1B6F42EB8DB6 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/addpropertywindow.h";
+			name = "addpropertywindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		29B9F3B6E01BD914564429FE = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/afteractiondelegate.h";
+			name = "afteractiondelegate.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
 		76D104859A4B715BC94CCFAF = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/tpapp_server_manage.pro";
@@ -520,6 +571,20 @@
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/.qmake.stash";
 			name = ".qmake.stash";
 			sourceTree = "<absolute>";
+		};
+		1F2AE88ED6FB661955345823 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/addpropertywindow.ui";
+			name = "addpropertywindow.ui";
+			sourceTree = "<absolute>";
+		};
+		D105694CACE923524DD0E1E4 = {
+			fileRef = "1F2AE88ED6FB661955345823";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
 		};
 		05ACC8947B91DBE7EB2691C7 = {
 			isa = PBXFileReference;
@@ -660,6 +725,8 @@
 				"4B2AA19011F64E3DAC1B2A30",
 				"461379D424408C488594469A",
 				"21BC76BD3C722C032972EA93",
+				"01F12AAA3442A80A2FABA5D6",
+				"EBB952033A0E185D390CE248",
 				"35AD1549BAC52A3474804080",
 				"84C56CC96C6F0253157DC8F8",
 				"489D0CCED632657F1EA53058",
@@ -696,6 +763,7 @@
 				"3892E0CFD06C496488928753",
 				"DF349E22EE2130E497EA8AB6",
 				"16F739CB3528705E264C3355",
+				"B4B550E58E0C609BAB354EBF",
 				"E2A31CDBFA6DF5CECDE64708",
 				"B1A5BA12EABE1363CFC0643E",
 				"47E4BCA6D9B05D0665FC901B",
@@ -706,13 +774,16 @@
 				"4E2B650711DCB52F36642879",
 				"26D181F480A0CF5CEFB57AA0",
 				"29E9AD140FBAD246A37BE2E9",
-				"5ED4163609277413696918DE");
+				"5ED4163609277413696918DE",
+				"4E5747FE8A3E1B6F42EB8DB6",
+				"29B9F3B6E01BD914564429FE");
 			name = "Sources";
 			sourceTree = "<group>";
 		};
 		12E908B8A1C3C07C115504F5 = {
 			isa = PBXGroup;
 			children = (
+				"1F2AE88ED6FB661955345823",
 				"05ACC8947B91DBE7EB2691C7",
 				"FA1D32100A82375C75FB9EAA",
 				"1C91E71CE56093A5523C83F9",
@@ -760,6 +831,7 @@
 				"8CC9C89F106C9643F9C3FB87",
 				"4DD96347EBFB80B7B796CF44",
 				"212A50CC1B6B245D7CF9D52C",
+				"1C54B7F22A7E9E119703F478",
 				"40D47DA6A7AFEBD80036D8DD",
 				"0AF8D83EB136ADA2250D5B10",
 				"4E5165578E6530BBFD91DEA9",
@@ -769,7 +841,8 @@
 				"231C170BDF1B3F45804F2B39",
 				"DFAAAC467A1A51B77050838F",
 				"3F812DCF206A5F318241AC73",
-				"0E44AFD7A61A056EB140B5E1");
+				"0E44AFD7A61A056EB140B5E1",
+				"5266916B05FF0E22532F2C3A");
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Compile Sources";

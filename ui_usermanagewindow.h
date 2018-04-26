@@ -14,8 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,8 +24,8 @@ class Ui_UserManageWindow
 {
 public:
     QPushButton *refreshListBtn;
-    QListView *listView;
     QPushButton *addProBtn;
+    QTableWidget *proTable;
 
     void setupUi(QWidget *UserManageWindow)
     {
@@ -35,12 +35,12 @@ public:
         refreshListBtn = new QPushButton(UserManageWindow);
         refreshListBtn->setObjectName(QStringLiteral("refreshListBtn"));
         refreshListBtn->setGeometry(QRect(10, 50, 113, 32));
-        listView = new QListView(UserManageWindow);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setGeometry(QRect(140, 10, 341, 361));
         addProBtn = new QPushButton(UserManageWindow);
         addProBtn->setObjectName(QStringLiteral("addProBtn"));
         addProBtn->setGeometry(QRect(10, 90, 113, 32));
+        proTable = new QTableWidget(UserManageWindow);
+        proTable->setObjectName(QStringLiteral("proTable"));
+        proTable->setGeometry(QRect(150, 0, 351, 391));
 
         retranslateUi(UserManageWindow);
 

@@ -26,16 +26,6 @@
     <string>刷新列表</string>
    </property>
   </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>10</y>
-     <width>341</width>
-     <height>361</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="addProBtn">
    <property name="geometry">
     <rect>
@@ -47,6 +37,16 @@
    </property>
    <property name="text">
     <string>添加属性</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="proTable">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>0</y>
+     <width>351</width>
+     <height>391</height>
+    </rect>
    </property>
   </widget>
  </widget>

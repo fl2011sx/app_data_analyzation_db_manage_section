@@ -35,6 +35,7 @@ public:
     QPushButton *statisticsBtn;
     QPushButton *dependencyBtn;
     QPushButton *forecastBtn;
+    QPushButton *dataCompleteBtn;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -60,16 +61,19 @@ public:
         displayView->verticalHeader()->setVisible(false);
         userManageBtn = new QPushButton(centralWidget);
         userManageBtn->setObjectName(QStringLiteral("userManageBtn"));
-        userManageBtn->setGeometry(QRect(10, 250, 113, 32));
+        userManageBtn->setGeometry(QRect(10, 160, 113, 32));
         statisticsBtn = new QPushButton(centralWidget);
         statisticsBtn->setObjectName(QStringLiteral("statisticsBtn"));
         statisticsBtn->setGeometry(QRect(10, 300, 113, 32));
         dependencyBtn = new QPushButton(centralWidget);
         dependencyBtn->setObjectName(QStringLiteral("dependencyBtn"));
-        dependencyBtn->setGeometry(QRect(10, 340, 113, 32));
+        dependencyBtn->setGeometry(QRect(10, 330, 113, 32));
         forecastBtn = new QPushButton(centralWidget);
         forecastBtn->setObjectName(QStringLiteral("forecastBtn"));
-        forecastBtn->setGeometry(QRect(10, 380, 113, 32));
+        forecastBtn->setGeometry(QRect(10, 360, 113, 32));
+        dataCompleteBtn = new QPushButton(centralWidget);
+        dataCompleteBtn->setObjectName(QStringLiteral("dataCompleteBtn"));
+        dataCompleteBtn->setGeometry(QRect(10, 270, 113, 32));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -96,6 +100,7 @@ public:
         statisticsBtn->setText(QApplication::translate("MainWindow", "\345\210\206\345\270\203\347\273\237\350\256\241", 0));
         dependencyBtn->setText(QApplication::translate("MainWindow", "\347\233\270\345\205\263\346\200\247\345\210\206\346\236\220", 0));
         forecastBtn->setText(QApplication::translate("MainWindow", "\346\225\260\345\200\274\351\242\204\346\265\213", 0));
+        dataCompleteBtn->setText(QApplication::translate("MainWindow", "\346\225\260\346\215\256\350\241\245\345\205\250", 0));
     } // retranslateUi
 
 };

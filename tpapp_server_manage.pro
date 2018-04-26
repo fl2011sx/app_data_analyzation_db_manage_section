@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     waitingthread.cpp \
     groupsetwindow.cpp \
     dependencywindow.cpp \
-    forcastwindow.cpp
+    forcastwindow.cpp \
+    addpropertywindow.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
@@ -39,7 +40,9 @@ HEADERS  += mainwindow.h\
     waitingthread.h \
     groupsetwindow.h \
     dependencywindow.h \
-    forcastwindow.h
+    forcastwindow.h \
+    addpropertywindow.h \
+    afteractiondelegate.h
 
 FORMS    += *.ui \
     welcomewindow.ui \
@@ -48,4 +51,5 @@ FORMS    += *.ui \
     waitingwindow.ui \
     groupsetwindow.ui \
     dependencywindow.ui \
-    forcastwindow.ui
+    forcastwindow.ui \
+    addpropertywindow.ui

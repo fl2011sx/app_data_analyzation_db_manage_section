@@ -21,6 +21,7 @@ class UserProcess:
         self.userTableName = userTableName
         self.pro_valName = pro_valName
         self.operationName = operationName
+        self.propertiesName = propertiesName
         if not isinstance(database, Database):
             return
         self.db = database
@@ -28,8 +29,38 @@ class UserProcess:
         self.properties = single_tumple_to_list(properties)
 
 #显示用户属性
-    def showProperties(self):
-        return self.properties
+    def showProperties(self, showType = False):
+        if (not showType):
+            return self.properties
+        else:
+            que = "SELECT user_property, property_type FROM " + self.propertiesName
+            result = self.db.query(que)
+            return pd.DataFrame(list(result), columns = ["property_name", "type"])
+    
+#获取用户属性类型的枚举取值
+    def showPropertyTypes(self):
+        que = "SELECT COLUMN_TYPE FROM information_schema.COLUMNS WHERE table_name = '" + self.propertiesName + "' AND COLUMN_NAME = \"property_type\""
+        print(que)
+        result = self.db.query(que)[0][0]
+        arr = result.split("(")
+        tmp = arr[1]
+        arr = tmp.split(")")
+        tmp = arr[0]
+        arr = tmp.split(",")
+        arr = map(lambda s: s[1:-1], arr) #消除引号
+
+        return arr
+
+#添加用户属性
+    def addProperty(self, proName, proType):
+        if (not isinstance(proName, str) or not isinstance(proType, str)):
+            return
+        proTypes = self.showPropertyTypes()
+        if (not proType in proTypes):
+            return
+        que = "INSERT INTO " + self.propertiesName + "(user_property, property_type) VALUES(\"" + proName + "\", \"" + proType + "\")"
+        print(que)
+        self.db.query(que)
 
 #拼接属性后显示用户信息
     def showUsers(self):

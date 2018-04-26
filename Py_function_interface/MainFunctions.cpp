@@ -188,8 +188,17 @@ void UserProcess::bashRegistUserByXls(const std::string xlsRoot, const std::stri
 UserProcess::~UserProcess() {
 }
 
-PyObject *UserProcess::showProperties() {
-    PyObject_CallMethod(py_UserProcess, "showProperties", nullptr);
+PyObject *UserProcess::showProperties(const bool showType) {
+    return PyObject_CallMethod(py_UserProcess, "showProperties", "O", PyBool_FromLong(showType));
+}
+
+PyObject *UserProcess::showPropertyTypes() {
+    PyObject *ret = PyObject_CallMethod(py_UserProcess, "showPropertyTypes", nullptr);
+    return ret;
+}
+
+void UserProcess::addProperty(const std::string &proName, const std::string &proType) {
+    PyObject_CallMethod(py_UserProcess, "addProperty", "ss", proName.c_str(), proType.c_str());
 }
 
 void python_func::drawBarChart(std::vector<double> &data, const std::string &save_root, const std::string &x_title, const std::string &title, const double width, const double gap, const std::string &color, const bool grid, const bool show) {

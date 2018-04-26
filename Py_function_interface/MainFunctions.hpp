@@ -42,7 +42,9 @@ namespace python_func {
     public:
         UserProcess(PyObject *db);
         ~UserProcess();
-        PyObject *showProperties();
+        PyObject *showProperties(const bool showType = false);
+        PyObject *showPropertyTypes();
+        void addProperty(const std::string &proName, const std::string &proType);
         PyObject *showUsers();
         PyObject *newUsers(int howNew = 604800);
         PyObject *activityUsers(int howNew = 604800);

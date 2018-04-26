@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'usermanagewindow.h'
+** Meta object code from reading C++ file 'addpropertywindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "usermanagewindow.h"
+#include "addpropertywindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'usermanagewindow.h' doesn't include <QObject>."
+#error "The header file 'addpropertywindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,34 +18,33 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_UserManageWindow_t {
-    QByteArrayData data[4];
-    char stringdata0[42];
+struct qt_meta_stringdata_AddPropertyWindow_t {
+    QByteArrayData data[3];
+    char stringdata0[27];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_UserManageWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_AddPropertyWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_UserManageWindow_t qt_meta_stringdata_UserManageWindow = {
+static const qt_meta_stringdata_AddPropertyWindow_t qt_meta_stringdata_AddPropertyWindow = {
     {
-QT_MOC_LITERAL(0, 0, 16), // "UserManageWindow"
-QT_MOC_LITERAL(1, 17, 7), // "refresh"
-QT_MOC_LITERAL(2, 25, 0), // ""
-QT_MOC_LITERAL(3, 26, 15) // "addUserProperty"
+QT_MOC_LITERAL(0, 0, 17), // "AddPropertyWindow"
+QT_MOC_LITERAL(1, 18, 7), // "confirm"
+QT_MOC_LITERAL(2, 26, 0) // ""
 
     },
-    "UserManageWindow\0refresh\0\0addUserProperty"
+    "AddPropertyWindow\0confirm\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_UserManageWindow[] = {
+static const uint qt_meta_data_AddPropertyWindow[] = {
 
  // content:
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -53,64 +52,59 @@ static const uint qt_meta_data_UserManageWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x08 /* Private */,
-       3,    0,   25,    2, 0x08 /* Private */,
+       1,    0,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
 };
 
-void UserManageWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void AddPropertyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        UserManageWindow *_t = static_cast<UserManageWindow *>(_o);
+        AddPropertyWindow *_t = static_cast<AddPropertyWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->refresh(); break;
-        case 1: _t->addUserProperty(); break;
+        case 0: _t->confirm(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject UserManageWindow::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_UserManageWindow.data,
-      qt_meta_data_UserManageWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject AddPropertyWindow::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_AddPropertyWindow.data,
+      qt_meta_data_AddPropertyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *UserManageWindow::metaObject() const
+const QMetaObject *AddPropertyWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *UserManageWindow::qt_metacast(const char *_clname)
+void *AddPropertyWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_UserManageWindow.stringdata0))
-        return static_cast<void*>(const_cast< UserManageWindow*>(this));
-    if (!strcmp(_clname, "AfterActionDelegate"))
-        return static_cast< AfterActionDelegate*>(const_cast< UserManageWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_AddPropertyWindow.stringdata0))
+        return static_cast<void*>(const_cast< AddPropertyWindow*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int UserManageWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int AddPropertyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 1)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 1;
     }
     return _id;
 }

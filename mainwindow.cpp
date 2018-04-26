@@ -27,9 +27,8 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::debugTest() {
-    double arr[] = {2, 5.8, 4, 7.5};
-    std::vector<double> ve(arr, arr + 3);
-    python_func::drawBarChart(ve, "/Users/hubohao/Desktop/test.png");
+    python_func::UserProcess up(database -> asPyObject());
+    python_func::py_print(up.showPropertyTypes());
 }
 
 void MainWindow::showDependencyWindow() {

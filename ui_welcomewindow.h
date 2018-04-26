@@ -23,6 +23,7 @@ class Ui_WelcomeWindow
 {
 public:
     QPushButton *openSystemBtn;
+    QPushButton *setupBtn;
 
     void setupUi(QWidget *WelcomeWindow)
     {
@@ -32,6 +33,9 @@ public:
         openSystemBtn = new QPushButton(WelcomeWindow);
         openSystemBtn->setObjectName(QStringLiteral("openSystemBtn"));
         openSystemBtn->setGeometry(QRect(130, 170, 113, 32));
+        setupBtn = new QPushButton(WelcomeWindow);
+        setupBtn->setObjectName(QStringLiteral("setupBtn"));
+        setupBtn->setGeometry(QRect(280, 260, 113, 32));
 
         retranslateUi(WelcomeWindow);
 
@@ -42,6 +46,7 @@ public:
     {
         WelcomeWindow->setWindowTitle(QApplication::translate("WelcomeWindow", "Form", 0));
         openSystemBtn->setText(QApplication::translate("WelcomeWindow", "\345\274\200\345\220\257\347\263\273\347\273\237", 0));
+        setupBtn->setText(QApplication::translate("WelcomeWindow", "\351\203\250\347\275\262\347\263\273\347\273\237", 0));
     } // retranslateUi
 
 };
