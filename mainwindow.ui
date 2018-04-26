@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>0</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>160</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -89,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>330</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -102,13 +102,26 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>380</y>
+      <y>360</y>
       <width>113</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
      <string>数值预测</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dataCompleteBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>数据补全</string>
     </property>
    </widget>
   </widget>

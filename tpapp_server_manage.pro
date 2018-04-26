@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     waitingwindow.cpp \
     waitingthread.cpp \
     groupsetwindow.cpp \
-    dependencywindow.cpp
+    dependencywindow.cpp \
+    forcastwindow.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h\
     waitingwindow.h \
     waitingthread.h \
     groupsetwindow.h \
-    dependencywindow.h
+    dependencywindow.h \
+    forcastwindow.h
 
 FORMS    += *.ui \
     welcomewindow.ui \
@@ -45,4 +47,5 @@ FORMS    += *.ui \
     statisticswindow.ui \
     waitingwindow.ui \
     groupsetwindow.ui \
-    dependencywindow.ui
+    dependencywindow.ui \
+    forcastwindow.ui

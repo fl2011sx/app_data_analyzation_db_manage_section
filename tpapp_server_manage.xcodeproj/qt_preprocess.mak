@@ -32,16 +32,18 @@ benchmark: first
 
 compilers: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp\
 	 moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp\
-	 moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp ui_dependencywindow.h ui_groupsetwindow.h ui_loginwindow.h\
-	 ui_mainwindow.h ui_statisticswindow.h ui_usermanagewindow.h\
-	 ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h\
-	 ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h\
-	 ui_groupsetwindow.h ui_dependencywindow.h
+	 moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp\
+	 moc_forcastwindow.cpp ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h\
+	 ui_loginwindow.h ui_mainwindow.h ui_statisticswindow.h\
+	 ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h\
+	 ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h\
+	 ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h\
+	 ui_forcastwindow.h
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp
 moc_mainwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		global.hpp \
@@ -115,14 +117,23 @@ moc_dependencywindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Hea
 		../../Qt5.7.0/5.7/clang_64/bin/moc
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib dependencywindow.h -o moc_dependencywindow.cpp
 
+moc_forcastwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		forcastwindow.h \
+		../../Qt5.7.0/5.7/clang_64/bin/moc
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib forcastwindow.h -o moc_forcastwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dependencywindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h
+compiler_uic_make_all: ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dependencywindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h
+	-$(DEL_FILE) ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h
 ui_dependencywindow.h: dependencywindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic dependencywindow.ui -o ui_dependencywindow.h
+
+ui_forcastwindow.h: forcastwindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic forcastwindow.ui -o ui_forcastwindow.h
 
 ui_groupsetwindow.h: groupsetwindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
@@ -175,6 +186,10 @@ ui_groupsetwindow.h: groupsetwindow.ui \
 ui_dependencywindow.h: dependencywindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic dependencywindow.ui -o ui_dependencywindow.h
+
+ui_forcastwindow.h: forcastwindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic forcastwindow.ui -o ui_forcastwindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:

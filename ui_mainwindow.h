@@ -48,7 +48,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         debugTest = new QPushButton(centralWidget);
         debugTest->setObjectName(QStringLiteral("debugTest"));
-        debugTest->setGeometry(QRect(10, 200, 113, 32));
+        debugTest->setGeometry(QRect(10, 0, 113, 32));
         showUserBtn = new QPushButton(centralWidget);
         showUserBtn->setObjectName(QStringLiteral("showUserBtn"));
         showUserBtn->setGeometry(QRect(10, 130, 113, 32));

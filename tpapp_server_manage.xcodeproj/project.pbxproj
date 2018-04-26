@@ -196,6 +196,21 @@
 					);
 			};
 		};
+		16F739CB3528705E264C3355 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/forcastwindow.cpp";
+			name = "forcastwindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		212A50CC1B6B245D7CF9D52C = {
+			fileRef = "16F739CB3528705E264C3355";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		1D3E4E98CFB8EF548DFC679D = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_mainwindow.cpp";
@@ -331,10 +346,32 @@
 					);
 			};
 		};
+		21BC76BD3C722C032972EA93 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_forcastwindow.cpp";
+			name = "moc_forcastwindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		0E44AFD7A61A056EB140B5E1 = {
+			fileRef = "21BC76BD3C722C032972EA93";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		35AD1549BAC52A3474804080 = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_dependencywindow.h";
 			name = "ui_dependencywindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		84C56CC96C6F0253157DC8F8 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_forcastwindow.h";
+			name = "ui_forcastwindow.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
@@ -464,6 +501,13 @@
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
+		5ED4163609277413696918DE = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/forcastwindow.h";
+			name = "forcastwindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
 		76D104859A4B715BC94CCFAF = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/tpapp_server_manage.pro";
@@ -485,6 +529,20 @@
 		};
 		BCA02F0C071A8B3FA942F66B = {
 			fileRef = "05ACC8947B91DBE7EB2691C7";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		FA1D32100A82375C75FB9EAA = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/forcastwindow.ui";
+			name = "forcastwindow.ui";
+			sourceTree = "<absolute>";
+		};
+		5EBACDC30C8937DD4C0A1223 = {
+			fileRef = "FA1D32100A82375C75FB9EAA";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
@@ -601,7 +659,9 @@
 				"C1D6EC5A2CE19A173EB65F51",
 				"4B2AA19011F64E3DAC1B2A30",
 				"461379D424408C488594469A",
+				"21BC76BD3C722C032972EA93",
 				"35AD1549BAC52A3474804080",
+				"84C56CC96C6F0253157DC8F8",
 				"489D0CCED632657F1EA53058",
 				"5D2A2A6B20D0D60FB8FA78C0",
 				"225408536E45DF373C31DF4A",
@@ -635,6 +695,7 @@
 				"2F57B83B8C16634D305A3D2F",
 				"3892E0CFD06C496488928753",
 				"DF349E22EE2130E497EA8AB6",
+				"16F739CB3528705E264C3355",
 				"E2A31CDBFA6DF5CECDE64708",
 				"B1A5BA12EABE1363CFC0643E",
 				"47E4BCA6D9B05D0665FC901B",
@@ -644,7 +705,8 @@
 				"85C9B3655DA283C089CD995E",
 				"4E2B650711DCB52F36642879",
 				"26D181F480A0CF5CEFB57AA0",
-				"29E9AD140FBAD246A37BE2E9");
+				"29E9AD140FBAD246A37BE2E9",
+				"5ED4163609277413696918DE");
 			name = "Sources";
 			sourceTree = "<group>";
 		};
@@ -652,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				"05ACC8947B91DBE7EB2691C7",
+				"FA1D32100A82375C75FB9EAA",
 				"1C91E71CE56093A5523C83F9",
 				"3422E2ABE2541C6B62C32A40",
 				"981B3529BBC3F60E7F2820E3",
@@ -696,6 +759,7 @@
 				"9A6C8C568A8FE866482F089F",
 				"8CC9C89F106C9643F9C3FB87",
 				"4DD96347EBFB80B7B796CF44",
+				"212A50CC1B6B245D7CF9D52C",
 				"40D47DA6A7AFEBD80036D8DD",
 				"0AF8D83EB136ADA2250D5B10",
 				"4E5165578E6530BBFD91DEA9",
@@ -704,7 +768,8 @@
 				"DAA294548B6D854A64DE2512",
 				"231C170BDF1B3F45804F2B39",
 				"DFAAAC467A1A51B77050838F",
-				"3F812DCF206A5F318241AC73");
+				"3F812DCF206A5F318241AC73",
+				"0E44AFD7A61A056EB140B5E1");
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Compile Sources";

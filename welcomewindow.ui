@@ -26,6 +26,19 @@
     <string>开启系统</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="setupBtn">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>260</y>
+     <width>113</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>部署系统</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
