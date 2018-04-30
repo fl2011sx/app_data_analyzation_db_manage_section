@@ -1,5 +1,5 @@
 //
-//  BPNeuralNet.cpp
+//  basic_BPNeuralNet.cpp
 //  tpapp_server_manage
 //
 //  Created by 胡博豪 on 2018/4/29.
@@ -54,9 +54,9 @@ double *Matrix::operator [](unsigned i) {
     return data[i];
 }
 
-using NeuralNet::BPNeuralNet;
+using NeuralNet::basic_BPNeuralNet;
 
-BPNeuralNet::BPNeuralNet(
+basic_BPNeuralNet::basic_BPNeuralNet(
                          const unsigned inputCount,
                          double *const inputData,
                          const unsigned outputCount,
@@ -84,13 +84,16 @@ ita(ita),
 delta_out(new double[outputCount]),
 delta_hidden(new double *[hiddenNodeLayerCount])
 {
-    for (unsigned i = 0; i < inputCount; i++) {
-        this -> inputData[i] = inputData[i];
+    if (inputData) {
+        for (unsigned i = 0; i < inputCount; i++) {
+            this -> inputData[i] = inputData[i];
+        }
     }
-    for (unsigned i = 0; i < outputCount; i++) {
-        this -> outputData[i] = ouputData[i];
+    if (ouputData) {
+        for (unsigned i = 0; i < outputCount; i++) {
+            this -> outputData[i] = ouputData[i];
+        }
     }
-    
     for (unsigned i = 0; i < hiddenNodeLayerCount; i++) {
         this -> hiddenNode[i] = new double[inputCount];
     }
@@ -103,11 +106,6 @@ delta_hidden(new double *[hiddenNodeLayerCount])
         for (unsigned i = 0; i < hiddenNodeLayerCount; i++) {
             this -> b_hidden[i] = b_hidden[i];
         }
-    }
-    
-    // 初始化input节点
-    for (unsigned i = 0; i < inputCount; i++) {
-        this -> inputNode[i] = inputData[i];
     }
     
     // 初始化隐藏层权重矩阵
@@ -128,7 +126,7 @@ delta_hidden(new double *[hiddenNodeLayerCount])
     }
 }
 
-void BPNeuralNet::calNode(const unsigned lay_num, const unsigned num) {
+void basic_BPNeuralNet::calNode(const unsigned lay_num, const unsigned num) {
     double sum = 0;
     for (unsigned i = 0; i < inputCount; i++) {
         if (lay_num == 0) {
@@ -145,7 +143,7 @@ void BPNeuralNet::calNode(const unsigned lay_num, const unsigned num) {
     hiddenNode[lay_num][num] = sum + b_hidden[lay_num];
 }
 
-void BPNeuralNet::calOutNode(const unsigned int num) {
+void basic_BPNeuralNet::calOutNode(const unsigned int num) {
     double sum = 0;
     for (unsigned i = 0; i < inputCount; i++) {
         sum += sigmoid(hiddenNode[hiddenNodeLayerCount - 1][i]) * widget_out[i][num];
@@ -153,7 +151,7 @@ void BPNeuralNet::calOutNode(const unsigned int num) {
     outputNode[num] = sum + b_out;
 }
 
-double BPNeuralNet::err_whole() {
+double basic_BPNeuralNet::err_whole() {
     double sum = 0;
     for (unsigned i = 0; i < outputCount; i++) {
         sum += err_one(i);
@@ -161,13 +159,13 @@ double BPNeuralNet::err_whole() {
     return sum;
 }
 
-double BPNeuralNet::err_one(const unsigned int num) {
+double basic_BPNeuralNet::err_one(const unsigned int num) {
     // outputData -> target
     // f(outputNode) -> out
     return 0.5 * std::pow(outputData[num] - sigmoid(outputNode[num]), 2);
 }
 
-void BPNeuralNet::refreshWidgetOut() {
+void basic_BPNeuralNet::refreshWidgetOut() {
     for (unsigned i = 0; i < outputCount; i++) {
         claDeltaOut(i);
     }
@@ -178,7 +176,7 @@ void BPNeuralNet::refreshWidgetOut() {
     }
 }
 
-void BPNeuralNet::refershWidgetOut_one(const unsigned prenum, const unsigned num) {
+void basic_BPNeuralNet::refershWidgetOut_one(const unsigned prenum, const unsigned num) {
     // ∂E/∂w = (∂E/∂o) * (∂o/∂no) * (∂no/∂w) = δ * (∂no/∂w)
     // ∂no/∂w = op
     double rd_no_w = sigmoid(hiddenNode[hiddenNodeLayerCount - 1][prenum]);
@@ -187,7 +185,7 @@ void BPNeuralNet::refershWidgetOut_one(const unsigned prenum, const unsigned num
     widget_out[prenum][num] -= ita * rd_E_w;
 }
 
-void BPNeuralNet::claDeltaOut(const unsigned num) {
+void basic_BPNeuralNet::claDeltaOut(const unsigned num) {
     // ∂E/∂o = -(tar - o)
     double rd_E_o = sigmoid(outputNode[num]) - outputData[num];
     // ∂o/∂no = f'(no) = sigmoid'(no) = o(1-o)
@@ -197,7 +195,7 @@ void BPNeuralNet::claDeltaOut(const unsigned num) {
     delta_out[num] = rd_E_no;
 }
 
-void BPNeuralNet::refreshWidgetHidden() {
+void basic_BPNeuralNet::refreshWidgetHidden() {
     for (int i = hiddenNodeLayerCount - 1; i >= 0; i--) {
         for (unsigned j = 0; j < inputCount; j++) {
             calDeltaHidden(i, j);
@@ -212,7 +210,7 @@ void BPNeuralNet::refreshWidgetHidden() {
     }
 }
 
-void BPNeuralNet::refreshWidgetHidden_one(const unsigned int lay_num, const unsigned int pre_num, const unsigned int num) {
+void basic_BPNeuralNet::refreshWidgetHidden_one(const unsigned int lay_num, const unsigned int pre_num, const unsigned int num) {
     // ∂E/∂w = δ * (∂no/∂w)
     // no = Σ(wi * np) + b
     // ∂no/∂w = np
@@ -228,7 +226,7 @@ void BPNeuralNet::refreshWidgetHidden_one(const unsigned int lay_num, const unsi
     widget_hidden[lay_num][pre_num][num] -= ita * rd_E_w;
 }
 
-void BPNeuralNet::calDeltaHidden(const unsigned int lay_num, const unsigned int num) {
+void basic_BPNeuralNet::calDeltaHidden(const unsigned int lay_num, const unsigned int num) {
     // δ = ∂E/∂o * ∂o/∂no
     // ∂E/∂o = Σ(∂Ei/∂o) = Σwaδa
     // 如果是最后一层
@@ -252,30 +250,49 @@ void BPNeuralNet::calDeltaHidden(const unsigned int lay_num, const unsigned int 
     delta_hidden[lay_num][num] = sigma_w_d * rd_o_no;
 }
 
-void BPNeuralNet::train_once() {
+void basic_BPNeuralNet::initInputNode() {
+    // 初始化input节点
+    for (unsigned i = 0; i < inputCount; i++) {
+        inputNode[i] = inputData[i];
+    }
+}
+
+void basic_BPNeuralNet::calHiddenNode() {
     // 隐藏层节点值的计算
     for (unsigned i = 0; i < hiddenNodeLayerCount; i++) {
         for (unsigned j = 0; j < inputCount; j++) {
             calNode(i, j); // 计算第i层第j个隐藏节点的值
         }
     }
+}
+
+void basic_BPNeuralNet::calOutputNode() {
     // 输出层节点值的计算
     for (unsigned i = 0; i < outputCount; i++) {
         calOutNode(i);
     }
+}
+
+void basic_BPNeuralNet::train_once() {
+    // 初始化输入节点
+    initInputNode();
+    // 隐藏层节点值的计算
+    calHiddenNode();
+    // 输出层节点值的计算
+    calOutputNode();
     // 输出节点权值更新
     refreshWidgetOut();
     // 隐藏节点权值更新
     refreshWidgetHidden();
 }
 
-void BPNeuralNet::train(const unsigned int count) {
+void basic_BPNeuralNet::train(const unsigned int count) {
     for (unsigned i = 0; i < count; i++) {
         train_once();
     }
 }
 
-BPNeuralNet::~BPNeuralNet() {
+basic_BPNeuralNet::~basic_BPNeuralNet() {
     delete [] inputNode;
     delete [] outputNode;
     delete [] inputData;
@@ -291,3 +308,84 @@ BPNeuralNet::~BPNeuralNet() {
     operator delete(widget_hidden);
 }
 
+void basic_BPNeuralNet::setIOData(double *const input, double *const output) {
+    for (unsigned i = 0; i < inputCount; i++) {
+        inputData[i] = input[i];
+    }
+    for (unsigned i = 0; i < outputCount; i++) {
+        outputData[i] = output[i];
+    }
+}
+
+unsigned basic_BPNeuralNet::inputDataCount() const {
+    return inputCount;
+}
+
+unsigned basic_BPNeuralNet::outputDataCount() const {
+    return outputCount;
+}
+
+void basic_BPNeuralNet::forcastData(const double *const input, double *const ouput) {
+    for (unsigned i = 0; i < inputCount; i++) {
+        inputData[i] = input[i];
+    }
+    initInputNode();
+    calHiddenNode();
+    calOutputNode();
+    for (unsigned i = 0; i < outputCount; i++) {
+        ouput[i] = sigmoid(outputNode[i]);
+    }
+}
+
+using NeuralNet::BPNeuralNet;
+
+BPNeuralNet::BPNeuralNet(const unsigned inputCount, const unsigned outputCount, const unsigned hiddenNodeLayerCount): net(basic_BPNeuralNet(inputCount, nullptr, outputCount, nullptr, hiddenNodeLayerCount)), inputCount(inputCount), outputCount(outputCount) {
+    
+}
+
+bool BPNeuralNet::addIOData(const std::vector<double> &inputData, const std::vector<double> &outputData) {
+    if (inputData.size() != inputCount) {return false;}
+    if (outputData.size() != outputCount) {return false;}
+    for (std::vector<double>::const_iterator iter = inputData.begin(); iter != inputData.end(); iter++) {
+        if (*iter < 0 || *iter > 1) {return false;}
+    }
+    for (std::vector<double>::const_iterator iter = outputData.begin(); iter != outputData.end(); iter++) {
+        if (*iter < 0 || *iter > 1) {return false;}
+    }
+    data.insert(std::make_pair(inputData, outputData));
+    return true;
+}
+
+bool BPNeuralNet::train(const unsigned int times) {
+    if (data.empty()) {return false;}
+    for (unsigned time = 0; time < times; time++) {
+        for (std::map<std::vector<double>, std::vector<double>>::iterator iter = data.begin(); iter != data.end(); iter++) {
+            double *inputdata = new double[inputCount];
+            double *outputdata = new double[outputCount];
+            for (unsigned i = 0; i < iter -> first.size(); i++) {
+                inputdata[i] = iter -> first.at(i);
+            }
+            for (unsigned i = 0; i < iter -> second.size(); i++) {
+                outputdata[i] = iter -> second.at(i);
+            }
+            net.setIOData(inputdata, outputdata);
+            net.train(1);
+            delete [] inputdata;
+            delete [] outputdata;
+        }
+    }
+    return true;
+}
+
+std::vector<double> BPNeuralNet::forecastData(const std::vector<double> &input) {
+    double *ouputData = new double[outputCount];
+    double *inputData = new double[inputCount];
+    for (unsigned i = 0; i < inputCount; i++) {
+        inputData[i] = input.at(i);
+    }
+    net.forcastData(inputData, ouputData);
+    std::vector<double> ouput(ouputData, ouputData + outputCount);
+    delete [] ouputData;
+    delete [] inputData;
+    return ouput;
+}

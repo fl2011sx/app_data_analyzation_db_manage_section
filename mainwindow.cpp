@@ -30,20 +30,34 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::debugTest() {
-    double input[] = {0.05, 0.10, -0.4};
-    double ouput[] = {0.01, 0.99, 0.77};
-    double w1[2][2] = {{0.15, 0.25}, {0.20, 0.30}};
-    NeuralNet::Matrix w(2, 2, w1);
-    NeuralNet::Matrix wh[] = {w};
-    double w2[2][2] = {{0.40, 0.50}, {0.45, 0.55}};
-    NeuralNet::Matrix wo(2, 2, w2);
-    double b1[] = {0.35};
-    
-//    NeuralNet::BPNeuralNet bp(2, input, 2, ouput, 1, wh, b1, &wo, 0.60);
-    NeuralNet::BPNeuralNet bp(3, input, 3, ouput, 2);
-    bp.train(100000);
-    for (unsigned i = 0; i < bp.outputCount; i++) {
-        qDebug() << NeuralNet::sigmoid(bp.outputNode[i]);
+    double input1[] = {0.15, 0.36, 0.74};
+    double output1[] = {0.28, 0.66};
+    double input2[] = {0.24, 0.08, 0.3};
+    double output2[] = {0.18, 0.96};
+    double input3[] = {0, 1, 1};
+    double output3[] = {1, 0};
+    std::vector<double> i1(input1, input1 + 3);
+    std::vector<double> i2(input2, input2 + 3);
+    std::vector<double> i3(input3, input3 + 3);
+    std::vector<double> o1(output1, output1 + 2);
+    std::vector<double> o2(output2, output2 + 2);
+    std::vector<double> o3(output3, output3 + 2);
+    NeuralNet::BPNeuralNet bp(3, 2);
+    bp.addIOData(i1, o1);
+    bp.addIOData(i2, o2);
+    bp.addIOData(i3, o3);
+    bp.train(10000000);
+    std::vector<double> test = bp.forecastData(i1);
+    for (auto data : test) {
+        qDebug() << data;
+    }
+    std::vector<double> test2 = bp.forecastData(i2);
+    for (auto data : test2) {
+        qDebug() << data;
+    }
+    std::vector<double> test3 = bp.forecastData(i3);
+    for (auto data : test3) {
+        qDebug() << data;
     }
 }
 
