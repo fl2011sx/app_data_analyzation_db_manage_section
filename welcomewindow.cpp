@@ -8,6 +8,9 @@ WelcomeWindow::WelcomeWindow(QWidget *parent) :
     loginWindow(new LoginWindow)
 {
     ui->setupUi(this);
+    
+    setWindowTitle("欢迎");
+    
     connect(ui -> openSystemBtn, SIGNAL(clicked()), this, SLOT(openSystem()));
 }
 

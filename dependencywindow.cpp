@@ -10,6 +10,9 @@ dependencyWindow::dependencyWindow(QWidget *parent) :
     up(new python_func::UserProcess(database -> asPyObject()))
 {
     ui->setupUi(this);
+    
+    setWindowTitle("相关性分析");
+    
     auto pros = python_func::py_list_to_vector(up -> showProperties());
     ui -> proListTable -> setRowCount(pros.size());
     ui -> proListTable -> setColumnCount(1);

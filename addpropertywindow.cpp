@@ -8,6 +8,9 @@ AddPropertyWindow::AddPropertyWindow(AfterActionDelegate *delegate, QWidget *par
     delegate(delegate)
 {
     ui->setupUi(this);
+    
+    setWindowTitle("添加属性");
+    
     auto pro_types = python_func::py_list_to_vector(up.showPropertyTypes());
     for (auto pt : pro_types) {
         ui -> proTypeBox -> addItem(pt.c_str());

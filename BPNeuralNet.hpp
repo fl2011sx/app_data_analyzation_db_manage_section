@@ -109,6 +109,7 @@ namespace NeuralNet {
 }
 
 namespace NeuralNet {
+    //********************
     // 类名：BPNeuralNet
     // 所属命名空间：NeuralNet
     // 类介绍：用于建立一个BP人工神经网络
@@ -128,6 +129,7 @@ namespace NeuralNet {
                     const unsigned hiddenNodeLayerCount = 5
                     );
         
+        //********************
         // 函数名：addIOData
         // 函数作用：添加一组输入和输出
         // 参数个数：2
@@ -136,6 +138,7 @@ namespace NeuralNet {
         // 返回值：如果输入的数据有误（例如元素个数不符或数据超出范围）则会返回false，正常情况返回true
         bool addIOData(const std::vector<double> &inputData, const std::vector<double> &outputData);
         
+        //********************
         // 函数名：train
         // 函数作用：在数据准备好后进行若干次训练
         // 参数个数：1
@@ -143,6 +146,7 @@ namespace NeuralNet {
         // 返回值：如果没有准备好输入和输出数据，测会返回false，正常情况返回true
         bool train(const unsigned times);
         
+        //********************
         // 函数名：forecastData
         // 函数作用：预测一组数据
         // 参数个数：1

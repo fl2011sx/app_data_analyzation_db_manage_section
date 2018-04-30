@@ -9,6 +9,9 @@ LoginWindow::LoginWindow(QWidget *parent) :
     mainWindow(new MainWindow)
 {
     ui->setupUi(this);
+    
+    setWindowTitle("登录数据库");
+    
     connect(ui -> connectBtn, SIGNAL(clicked()), this, SLOT(connectDatabase()));
     ui -> pswFiled -> setEchoMode(QLineEdit::EchoMode::Password);
 }

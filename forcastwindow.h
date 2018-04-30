@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::forcastWindow *ui;
+    
+private slots:
+    void showSingleForcast();
 };
 
 #endif // FORCASTWINDOW_H

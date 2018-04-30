@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     dependencywindow.cpp \
     forcastwindow.cpp \
     addpropertywindow.cpp\
-    BPNeuralNet.cpp
+    BPNeuralNet.cpp \
+    singleforcast.cpp \
+    singleforecastinputwindow.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
@@ -44,7 +46,9 @@ HEADERS  += mainwindow.h\
     forcastwindow.h \
     addpropertywindow.h \
     afteractiondelegate.h\
-    BPNeuralNet.hpp
+    BPNeuralNet.hpp \
+    singleforcast.h \
+    singleforecastinputwindow.h
 
 FORMS    += *.ui \
     welcomewindow.ui \
@@ -54,4 +58,6 @@ FORMS    += *.ui \
     groupsetwindow.ui \
     dependencywindow.ui \
     forcastwindow.ui \
-    addpropertywindow.ui
+    addpropertywindow.ui \
+    singleforcast.ui \
+    singleforecastinputwindow.ui

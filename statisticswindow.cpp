@@ -12,6 +12,8 @@ ui(new Ui::StatisticsWindow)
 {
     ui->setupUi(this);
     
+    setWindowTitle("分布统计");
+    
     ui -> aeraBtn -> setEnabled(false);
     ui -> singlePointBtn -> setEnabled(false);
     

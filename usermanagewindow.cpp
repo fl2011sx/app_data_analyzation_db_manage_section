@@ -9,6 +9,7 @@ UserManageWindow::UserManageWindow(QWidget *parent) :
     ui(new Ui::UserManageWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("用户管理");
     refresh();
     connect(ui -> refreshListBtn, &QPushButton::clicked, this, &UserManageWindow::refresh);
     connect(ui -> addProBtn, &QPushButton::clicked, this, &UserManageWindow::addUserProperty);
