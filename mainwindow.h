@@ -27,6 +27,7 @@ private slots:
     void showUserManageWindow();
     void showStatisticsWindow();
     void showDependencyWindow();
+    void showForcastWindow();
     
     void debugTest();
 };

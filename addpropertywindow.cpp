@@ -19,8 +19,10 @@ AddPropertyWindow::AddPropertyWindow(AfterActionDelegate *delegate, QWidget *par
 void AddPropertyWindow::confirm() {
     auto type = ui -> proTypeBox -> currentText().toStdString();
     auto pro = ui -> proNameFiled -> text().toStdString();
-    up.addProperty(pro, type);
-    close();
+    if (pro != "") {
+        up.addProperty(pro, type);
+        close();
+    }
     if (delegate) {
         delegate -> afterAction();
     }

@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     groupsetwindow.cpp \
     dependencywindow.cpp \
     forcastwindow.cpp \
-    addpropertywindow.cpp
+    addpropertywindow.cpp\
+    BPNeuralNet.cpp
 
 HEADERS  += mainwindow.h\
             Py_function_interface/*.hpp\
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h\
     dependencywindow.h \
     forcastwindow.h \
     addpropertywindow.h \
-    afteractiondelegate.h
+    afteractiondelegate.h\
+    BPNeuralNet.hpp
 
 FORMS    += *.ui \
     welcomewindow.ui \

@@ -7,6 +7,8 @@
 #include "usermanagewindow.h"
 #include "statisticswindow.h"
 #include "dependencywindow.h"
+#include "forcastwindow.h"
+#include "BPNeuralNet.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));
     connect(ui -> statisticsBtn, SIGNAL(clicked()), this, SLOT(showStatisticsWindow()));
     connect(ui -> dependencyBtn, &QPushButton::clicked, this, &MainWindow::showDependencyWindow);
+    connect(ui -> forecastBtn, &QPushButton::clicked, this, &MainWindow::showForcastWindow);
 }
 
 MainWindow::~MainWindow() {
@@ -27,8 +30,26 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::debugTest() {
-    python_func::UserProcess up(database -> asPyObject());
-    python_func::py_print(up.showPropertyTypes());
+    double input[] = {0.05, 0.10, -0.4};
+    double ouput[] = {0.01, 0.99, 0.77};
+    double w1[2][2] = {{0.15, 0.25}, {0.20, 0.30}};
+    NeuralNet::Matrix w(2, 2, w1);
+    NeuralNet::Matrix wh[] = {w};
+    double w2[2][2] = {{0.40, 0.50}, {0.45, 0.55}};
+    NeuralNet::Matrix wo(2, 2, w2);
+    double b1[] = {0.35};
+    
+//    NeuralNet::BPNeuralNet bp(2, input, 2, ouput, 1, wh, b1, &wo, 0.60);
+    NeuralNet::BPNeuralNet bp(3, input, 3, ouput, 2);
+    bp.train(100000);
+    for (unsigned i = 0; i < bp.outputCount; i++) {
+        qDebug() << NeuralNet::sigmoid(bp.outputNode[i]);
+    }
+}
+
+void MainWindow::showForcastWindow() {
+    auto fw = new forcastWindow();
+    fw -> show();
 }
 
 void MainWindow::showDependencyWindow() {

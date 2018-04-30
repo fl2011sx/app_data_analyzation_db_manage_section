@@ -12,6 +12,8 @@ UserManageWindow::UserManageWindow(QWidget *parent) :
     refresh();
     connect(ui -> refreshListBtn, &QPushButton::clicked, this, &UserManageWindow::refresh);
     connect(ui -> addProBtn, &QPushButton::clicked, this, &UserManageWindow::addUserProperty);
+    ui -> proTable -> setEditTriggers(QTableWidget::NoEditTriggers);
+    ui -> proTable -> setSelectionBehavior(QTableWidget::SelectRows);
 }
 
 UserManageWindow::~UserManageWindow()
