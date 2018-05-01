@@ -31,8 +31,8 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::debugTest() {
-    std::string tmp[] = {"lll", "afgrewg", "hello", "apple", "iPhone"};
-    std::vector<std::string> vt(tmp, tmp + 5);
+    double tmp[] = {1.8, 19.6, -3.8, -1, 7.9};
+    std::vector<double> vt(tmp, tmp + 5);
     dataProcess::DisperseDataForcast df(vt);
     auto test = df.getData_double();
     for (auto ele : test) {
@@ -40,9 +40,9 @@ void MainWindow::debugTest() {
     }
     auto set = df.getArgSet();
     dataProcess::DisperseDataForcast df2(test, set);
-    auto test2 = df2.getData_string();
+    auto test2 = df2.getData_double();
     for (auto ele : test2) {
-        qDebug() << ele.c_str();
+        qDebug() << ele;
     }
 }
 

@@ -101,9 +101,21 @@ void DisperseDataForcast::restoreData_double() {
     for (std::map<double, double>::const_iterator iter = set_double.begin(); iter != set_double.end(); iter++) {
         res_set[iter -> second] = iter -> first;
     }
-    for (std::vector<double>::iterator iter = data_double.begin(); iter != data_double.end(); iter++) {
-        *iter = res_set[*iter];
+    double base = 1.0 / (data_double.size() - 1);
+    double *block = new double[data_double.size()];
+    for (unsigned i = 0; i < data_double.size(); i++) {
+        block[i] = base / 2 + i * base;
     }
+    for (std::vector<double>::iterator iter = data_double.begin(); iter != data_double.end(); iter++) {
+        double val = *iter;
+        for (unsigned i = 0; i < data_double.size(); i++) {
+            if (val < block[i]) {
+                *iter = res_set[block[i] - base / 2];
+                break;
+            }
+        }
+    }
+    delete [] block;
 }
 void DisperseDataForcast::restoreData_str() {
     std::map<double, std::string> res_set;
