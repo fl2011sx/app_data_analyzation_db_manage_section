@@ -30,7 +30,7 @@ namespace dataProcess {
     
     struct DisperseDataForcastArgSet {
         std::map<double, double> set_double;
-        std::vector<std::string> set_string;
+        std::map<std::string, double> set_string;
         bool is_data_double; // 原始数据是否为doule，决定用哪个set
     };
     
@@ -40,7 +40,7 @@ namespace dataProcess {
         std::vector<std::string> data_str;
         
         std::map<double, double> set_double;
-        std::vector<std::string> set_string;
+        std::map<std::string, double> set_string;
         bool isDataDouble;
         void forcastData_double();
         void forcastData_str();

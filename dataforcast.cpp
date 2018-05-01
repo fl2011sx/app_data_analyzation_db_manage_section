@@ -81,7 +81,19 @@ void DisperseDataForcast::forcastData_double() {
     }
 }
 void DisperseDataForcast::forcastData_str() {
-    
+    for (std::vector<std::string>::const_iterator iter = data_str.begin(); iter != data_str.end(); iter++) {
+        set_string[*iter] = 0;
+    }
+    if (set_string.size() <= 1) {return;}
+    double base = 1.0 / (set_string.size() - 1);
+    double i = 0;
+    for (std::map<std::string, double>::iterator iter = set_string.begin(); iter != set_string.end(); iter++) {
+        iter -> second = i;
+        i += base;
+    }
+    for (std::vector<std::string>::iterator iter = data_str.begin(); iter != data_str.end(); iter++) {
+        data_double.push_back(set_string[*iter]);
+    }
 }
 
 void DisperseDataForcast::restoreData_double() {
@@ -94,14 +106,32 @@ void DisperseDataForcast::restoreData_double() {
     }
 }
 void DisperseDataForcast::restoreData_str() {
-    
+    std::map<double, std::string> res_set;
+    for (std::map<std::string, double>::const_iterator iter = set_string.begin(); iter != set_string.end(); iter++) {
+        res_set[iter -> second] = iter -> first;
+    }
+    double base = 1.0 / (data_double.size() - 1);
+    double *block = new double[data_double.size()];
+    for (unsigned i = 0; i < data_double.size(); i++) {
+        block[i] = base / 2 + i * base;
+    }
+    for (std::vector<double>::const_iterator iter = data_double.begin(); iter != data_double.end(); iter++) {
+        double val = *iter;
+        for (unsigned i = 0; i < data_double.size(); i++) {
+            if (val < block[i]) {
+                data_str.push_back(res_set[block[i] - base / 2]);
+                break;
+            }
+        }
+    }
+    delete [] block;
 }
 
 std::vector<double> DisperseDataForcast::getData_double() {
     return data_double;
 }
 std::vector<std::string> DisperseDataForcast::getData_string() {
-    return std::vector<std::string>();
+    return data_str;
 }
 
 dataProcess::DisperseDataForcastArgSet DisperseDataForcast::getArgSet() {
