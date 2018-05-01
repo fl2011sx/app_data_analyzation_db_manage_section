@@ -9,6 +9,7 @@
 #include "dependencywindow.h"
 #include "forcastwindow.h"
 #include "BPNeuralNet.hpp"
+#include "dataforcast.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,34 +31,18 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::debugTest() {
-    double input1[] = {0.15, 0.36, 0.74};
-    double output1[] = {0.28, 0.66};
-    double input2[] = {0.24, 0.08, 0.3};
-    double output2[] = {0.18, 0.96};
-    double input3[] = {0, 1, 1};
-    double output3[] = {1, 0};
-    std::vector<double> i1(input1, input1 + 3);
-    std::vector<double> i2(input2, input2 + 3);
-    std::vector<double> i3(input3, input3 + 3);
-    std::vector<double> o1(output1, output1 + 2);
-    std::vector<double> o2(output2, output2 + 2);
-    std::vector<double> o3(output3, output3 + 2);
-    NeuralNet::BPNeuralNet bp(3, 2);
-    bp.addIOData(i1, o1);
-    bp.addIOData(i2, o2);
-    bp.addIOData(i3, o3);
-    bp.train(10000000);
-    std::vector<double> test = bp.forecastData(i1);
-    for (auto data : test) {
-        qDebug() << data;
+    double tmp[] = {1.8, 2.4, 0.15, -0.16, 8};
+    std::vector<double> vt(tmp, tmp + 5);
+    dataProcess::DisperseDataForcast df(vt);
+    auto test = df.getData_double();
+    for (auto ele : test) {
+        qDebug() << ele;
     }
-    std::vector<double> test2 = bp.forecastData(i2);
-    for (auto data : test2) {
-        qDebug() << data;
-    }
-    std::vector<double> test3 = bp.forecastData(i3);
-    for (auto data : test3) {
-        qDebug() << data;
+    auto set = df.getArgSet();
+    dataProcess::DisperseDataForcast df2(test, set);
+    auto test2 = df2.getData_double();
+    for (auto ele : test2) {
+        qDebug() << ele;
     }
 }
 

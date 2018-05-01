@@ -34,19 +34,19 @@ compilers: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp\
 	 moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp\
 	 moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp\
 	 moc_forcastwindow.cpp moc_addpropertywindow.cpp moc_singleforcast.cpp\
-	 moc_singleforecastinputwindow.cpp ui_addpropertywindow.h ui_dependencywindow.h ui_forcastwindow.h\
-	 ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h\
-	 ui_singleforcast.h ui_singleforecastinputwindow.h ui_statisticswindow.h\
-	 ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h\
-	 ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h\
-	 ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h\
-	 ui_forcastwindow.h ui_addpropertywindow.h ui_singleforcast.h\
-	 ui_singleforecastinputwindow.h
+	 moc_singleforecastinputwindow.cpp moc_datapreprocesswindow.cpp ui_addpropertywindow.h ui_datapreprocesswindow.h ui_dependencywindow.h\
+	 ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h\
+	 ui_mainwindow.h ui_singleforcast.h ui_singleforecastinputwindow.h\
+	 ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h\
+	 ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h\
+	 ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h\
+	 ui_dependencywindow.h ui_forcastwindow.h ui_addpropertywindow.h\
+	 ui_singleforcast.h ui_singleforecastinputwindow.h ui_datapreprocesswindow.h
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp moc_addpropertywindow.cpp moc_singleforcast.cpp moc_singleforecastinputwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp moc_addpropertywindow.cpp moc_singleforcast.cpp moc_singleforecastinputwindow.cpp moc_datapreprocesswindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp moc_addpropertywindow.cpp moc_singleforcast.cpp moc_singleforecastinputwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_usermanagewindow.cpp moc_welcomewindow.cpp moc_loginwindow.cpp moc_statisticswindow.cpp moc_waitingwindow.cpp moc_waitingthread.cpp moc_groupsetwindow.cpp moc_dependencywindow.cpp moc_forcastwindow.cpp moc_addpropertywindow.cpp moc_singleforcast.cpp moc_singleforecastinputwindow.cpp moc_datapreprocesswindow.cpp
 moc_mainwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		global.hpp \
@@ -146,18 +146,31 @@ moc_singleforcast.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Header
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib singleforcast.h -o moc_singleforcast.cpp
 
 moc_singleforecastinputwindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		global.hpp \
+		Py_function_interface/MainFunctions.hpp \
+		waitingwindow.h \
+		../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		singleforecastinputwindow.h \
 		../../Qt5.7.0/5.7/clang_64/bin/moc
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib singleforecastinputwindow.h -o moc_singleforecastinputwindow.cpp
 
+moc_datapreprocesswindow.cpp: ../../Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		datapreprocesswindow.h \
+		../../Qt5.7.0/5.7/clang_64/bin/moc
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hubohao/Qt5.7.0/5.7/clang_64/mkspecs/macx-clang -I/Users/hubohao/Desktop/tpapp_server_manage -I/Users/hubohao/Desktop/tpapp_server_manage/-I -I/usr/include/Python -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/hubohao/Qt5.7.0/5.7/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/usr/local/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/hubohao/Qt5.7.0/5.7/clang_64/lib datapreprocesswindow.h -o moc_datapreprocesswindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_addpropertywindow.h ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h ui_addpropertywindow.h ui_singleforcast.h ui_singleforecastinputwindow.h
+compiler_uic_make_all: ui_addpropertywindow.h ui_datapreprocesswindow.h ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h ui_addpropertywindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_datapreprocesswindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_addpropertywindow.h ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h ui_addpropertywindow.h ui_singleforcast.h ui_singleforecastinputwindow.h
+	-$(DEL_FILE) ui_addpropertywindow.h ui_datapreprocesswindow.h ui_dependencywindow.h ui_forcastwindow.h ui_groupsetwindow.h ui_loginwindow.h ui_mainwindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_statisticswindow.h ui_usermanagewindow.h ui_waitingwindow.h ui_welcomewindow.h ui_welcomewindow.h ui_loginwindow.h ui_statisticswindow.h ui_waitingwindow.h ui_groupsetwindow.h ui_dependencywindow.h ui_forcastwindow.h ui_addpropertywindow.h ui_singleforcast.h ui_singleforecastinputwindow.h ui_datapreprocesswindow.h
 ui_addpropertywindow.h: addpropertywindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic addpropertywindow.ui -o ui_addpropertywindow.h
+
+ui_datapreprocesswindow.h: datapreprocesswindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic datapreprocesswindow.ui -o ui_datapreprocesswindow.h
 
 ui_dependencywindow.h: dependencywindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
@@ -242,6 +255,10 @@ ui_singleforcast.h: singleforcast.ui \
 ui_singleforecastinputwindow.h: singleforecastinputwindow.ui \
 		../../Qt5.7.0/5.7/clang_64/bin/uic
 	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic singleforecastinputwindow.ui -o ui_singleforecastinputwindow.h
+
+ui_datapreprocesswindow.h: datapreprocesswindow.ui \
+		../../Qt5.7.0/5.7/clang_64/bin/uic
+	/Users/hubohao/Qt5.7.0/5.7/clang_64/bin/uic datapreprocesswindow.ui -o ui_datapreprocesswindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:

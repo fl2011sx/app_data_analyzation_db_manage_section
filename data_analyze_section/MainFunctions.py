@@ -7,7 +7,7 @@ from scipy.interpolate import lagrange
 from inspect import isfunction
 from collections import OrderedDict
 
-#单元素元素转一维列表
+#单元素元组转一维列表
 def single_tumple_to_list(tum):
     result = []
     for ele in tum:
@@ -36,6 +36,10 @@ class UserProcess:
             que = "SELECT user_property, property_type FROM " + self.propertiesName
             result = self.db.query(que)
             return pd.DataFrame(list(result), columns = ["property_name", "type"])
+
+#获取用户的某些属性切片
+    def showUsersByPros(self, pros):
+        return self.__matrix_user_pro(pros)
     
 #获取用户属性类型的枚举取值
     def showPropertyTypes(self):

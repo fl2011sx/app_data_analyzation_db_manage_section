@@ -16,9 +16,12 @@ def py_DataFrame_to_matrix(data):
     return mat_str
 
 def py_get_DataFrame_columns(data):
-    col = data.columns.tolist();
+    col = data.columns.tolist()
     return col
 
 def py_get_DataFrame_rows(data):
     row = data.index.tolist()
     return row
+
+def py_DataFrame_item(data, row, col):
+    return data[col][row]

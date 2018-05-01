@@ -24,6 +24,7 @@ namespace python_func {
     PyObject *py_DataFrame_to_matrix(PyObject *data);
     PyObject *py_get_DataFrame_columns(PyObject *data);
     PyObject *py_get_DataFrame_rows(PyObject *data);
+    PyObject *py_DataFrame_item(PyObject *data, PyObject *row, PyObject *col);
     
     class Database {
     private:
@@ -50,9 +51,10 @@ namespace python_func {
         PyObject *activityUsers(int howNew = 604800);
         PyObject *fillUpUsers(bool isOperatingDatabase = false);
         PyObject *distributionUserPro(const std::string &pro, bool cal_values = false, std::vector<double> *groups = nullptr);
-        PyObject *relevancyUserPro(std::vector<std::string> &pros);
-        PyObject *valFiltrate(const std::string &dp_var, std::vector<std::string> &id_vars);
+        PyObject *relevancyUserPro(const std::vector<std::string> &pros);
+        PyObject *valFiltrate(const std::string &dp_var, const std::vector<std::string> &id_vars);
         void bashRegistUserByXls(const std::string xlsRoot, const std::string &note = "", bool userRealTime = true);
+        PyObject *showUsersByPros(const std::vector<std::string> &pros);
     };
     
     // 辅助函数

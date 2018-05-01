@@ -163,18 +163,18 @@ PyObject *UserProcess::distributionUserPro(const std::string &pro, bool cal_valu
     return ret;
 }
 
-PyObject *UserProcess::relevancyUserPro(std::vector<std::string> &pros) {
+PyObject *UserProcess::relevancyUserPro(const std::vector<std::string> &pros) {
     PyObject *list_pros = PyList_New(0);
-    for (std::vector<std::string>::iterator iter = pros.begin(); iter != pros.end(); iter++) {
+    for (std::vector<std::string>::const_iterator iter = pros.begin(); iter != pros.end(); iter++) {
         PyList_Append(list_pros, PyString_FromString(iter -> c_str()));
     }
     PyObject *ret = PyObject_CallMethod(py_UserProcess, "relevancy_user_pro", "O", list_pros);
     return ret;
 }
 
-PyObject *UserProcess::valFiltrate(const std::string &dp_var, std::vector<std::string> &id_vars) {
+PyObject *UserProcess::valFiltrate(const std::string &dp_var, const std::vector<std::string> &id_vars) {
     PyObject *list_id_vars = PyList_New(id_vars.size());
-    for (std::vector<std::string>::iterator iter = id_vars.begin(); iter != id_vars.end(); iter++) {
+    for (std::vector<std::string>::const_iterator iter = id_vars.begin(); iter != id_vars.end(); iter++) {
         PyList_Append(list_id_vars, PyString_FromString(iter -> c_str()));
     }
     PyObject *ret = PyObject_CallMethod(py_UserProcess, "val_filtrate", "sO", dp_var.c_str(), list_id_vars);
@@ -210,6 +210,15 @@ void python_func::drawBarChart(std::vector<double> &data, const std::string &sav
     drawBarChart(list, save_root, x_title, title, width, gap, color, grid, show);
 }
 
+PyObject *python_func::UserProcess::showUsersByPros(const std::vector<std::string> &pros) {
+    PyObject *list = PyList_New(0);
+    for (std::vector<std::string>::const_iterator iter = pros.begin(); iter != pros.end(); iter++) {
+        PyList_Append(list, PyString_FromString(iter -> c_str()));
+    }
+    PyObject *ret = PyObject_CallMethod(py_UserProcess, "showUsersByPros", "O", list);
+    return ret;
+}
+
 void python_func::drawBarChart(PyObject *data, const std::string &save_root, const std::string &x_title, const std::string &title, const double width, const double gap, const std::string &color, const bool grid, const bool show) {
     PyObject *module = PyImport_Import(PyString_FromString("MainFunctions"));
     PyObject *func = PyObject_GetAttrString(module, "draw_bar_chart");
@@ -225,4 +234,16 @@ void python_func::drawBarChart(PyObject *data, const std::string &save_root, con
     PyTuple_SetItem(arg, 8, PyBool_FromLong(show));
     PyObject_CallObject(func, arg);
 }
+
+PyObject *python_func::py_DataFrame_item(PyObject *data, PyObject *row, PyObject *col) {
+    PyObject *module = PyImport_Import(PyString_FromString("Interface_to_c"));
+    PyObject *func = PyObject_GetAttrString(module, "py_DataFrame_item");
+    PyObject *arg = PyTuple_New(3);
+    PyTuple_SetItem(arg, 0, data);
+    PyTuple_SetItem(arg, 1, row);
+    PyTuple_SetItem(arg, 2, col);
+    PyObject *ret = PyObject_CallObject(func, arg);
+    return ret;
+}
+
 

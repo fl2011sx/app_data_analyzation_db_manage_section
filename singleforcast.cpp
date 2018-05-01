@@ -17,28 +17,51 @@ SingleForcast::SingleForcast(QWidget *parent) :
     ui -> outputTable -> setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui -> outputTable -> setSelectionBehavior(QAbstractItemView::SelectRows);
     
-    auto pros = python_func::py_list_to_vector(up.showProperties());
+    auto pros = up.showProperties(true);
+    python_func::py_print(pros);
+    auto rows = python_func::py_get_DataFrame_rows(pros);
+    auto cols = python_func::py_list_to_vector(python_func::py_get_DataFrame_columns(pros));
+    auto size = PyList_Size(rows);
+    auto col_size = cols.size();
     
-    ui -> inputTable -> setRowCount(pros.size());
-    ui -> inputTable -> setColumnCount(1);
-    ui -> inputTable -> setColumnWidth(0, ui -> inputTable -> width());
+    ui -> inputTable -> setRowCount(size);
+    ui -> inputTable -> setColumnCount(col_size);
     
-    ui -> outputTable -> setRowCount(pros.size());
-    ui -> outputTable -> setColumnCount(1);
-    ui -> outputTable -> setColumnWidth(0, ui -> outputTable -> width());
+    ui -> outputTable -> setRowCount(size);
+    ui -> outputTable -> setColumnCount(col_size);
     
-    for (unsigned i = 0; i < pros.size(); i++) {
-        auto item = new QTableWidgetItem(pros.at(i).c_str());
-        item -> setCheckState(Qt::Unchecked);
-        auto item2 = new QTableWidgetItem(pros.at(i).c_str());
-        item2 -> setCheckState(Qt::Unchecked);
-        ui -> inputTable -> setItem(i, 0, item);
-        ui -> outputTable -> setItem(i, 0, item2);
+    for (int i = 0; i < size; i++) {
+        for (unsigned j = 0; j < col_size; j++) {
+            auto str = PyString_AsString(python_func::py_DataFrame_item(pros, PyInt_FromLong(i), PyString_FromString(cols.at(j).c_str())));
+            auto item = new QTableWidgetItem(str);
+            auto item2 = new QTableWidgetItem(str);
+            
+            if (j == 0) {
+                if (cols.at(j) != "innate") {
+                    item -> setCheckState(Qt::Unchecked);
+                    item2 -> setCheckState(Qt::Unchecked);
+                }
+            }
+            
+            ui -> inputTable -> setItem(i, j, item);
+            ui -> outputTable -> setItem(i, j, item2);
+            
+            if (i == 0) {
+                auto header = new QTableWidgetItem(cols.at(j).c_str());
+                ui -> inputTable -> setHorizontalHeaderItem(j, header);
+                ui -> inputTable -> setColumnWidth(j, ui -> inputTable -> width() / col_size);
+                auto header2 = new QTableWidgetItem(cols.at(j).c_str());
+                ui -> outputTable -> setHorizontalHeaderItem(j, header2);
+                ui -> outputTable -> setColumnWidth(j, ui -> inputTable -> width() / col_size);
+            }
+        }
     }
     connect(ui -> inputTable, &QTableWidget::cellChanged, this, &SingleForcast::inputTableChecked);
     connect(ui -> outputTable, &QTableWidget::cellChanged, this, &SingleForcast::outputTableChecked);
     connect(ui -> confirmBtn, &QPushButton::clicked, this, &SingleForcast::confirm);
     connect(ui -> emptyBtn, &QPushButton::clicked, this, &SingleForcast::empty);
+    
+    ui -> confirmBtn -> setEnabled(false);
 }
 
 void SingleForcast::inputTableChecked(int row, int col) {
@@ -47,6 +70,11 @@ void SingleForcast::inputTableChecked(int row, int col) {
     auto sel_item = ui -> outputTable -> findItems(content, Qt::MatchExactly);
     if (item -> checkState() == Qt::Checked) {
         sel_item.at(0) -> setCheckState(Qt::Unchecked);
+    }
+    if (couldConfirm()) {
+        ui -> confirmBtn -> setEnabled(true);
+    } else {
+        ui -> confirmBtn -> setEnabled(false);
     }
 }
 
@@ -57,6 +85,30 @@ void SingleForcast::outputTableChecked(int row, int col) {
     if (item -> checkState() == Qt::Checked) {
         sel_item.at(0) -> setCheckState(Qt::Unchecked);
     }
+    
+    if (couldConfirm()) {
+        ui -> confirmBtn -> setEnabled(true);
+    } else {
+        ui -> confirmBtn -> setEnabled(false);
+    }
+}
+
+bool SingleForcast::couldConfirm() {
+    bool result = false;
+    for (int i = 0; i < ui -> inputTable -> rowCount(); i++) {
+        auto item = ui -> inputTable -> item(i, 0);
+        if (item -> checkState() == Qt::Checked) {
+            result = true;
+        }
+    }
+    if (!result) {return false;}
+    for (int i = 0; i < ui -> outputTable -> rowCount(); i++) {
+        auto item = ui -> outputTable -> item(i, 0);
+        if (item -> checkState() == Qt::Checked) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void SingleForcast::confirm() {

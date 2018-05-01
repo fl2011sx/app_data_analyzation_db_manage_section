@@ -20,6 +20,7 @@ public:
 private:
     Ui::SingleForcast *ui;
     python_func::UserProcess up;
+    bool couldConfirm();
     
 private slots:
     void inputTableChecked(int row, int col);

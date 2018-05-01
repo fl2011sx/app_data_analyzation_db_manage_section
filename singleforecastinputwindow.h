@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <vector>
+#include "global.hpp"
+#include "MainFunctions.hpp"
 
 namespace Ui {
 class SingleForecastInputWindow;

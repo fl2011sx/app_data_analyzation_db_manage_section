@@ -39,12 +39,12 @@ public:
         outputTable = new QTableWidget(SingleForcast);
         outputTable->setObjectName(QStringLiteral("outputTable"));
         outputTable->setGeometry(QRect(10, 40, 351, 201));
-        outputTable->horizontalHeader()->setVisible(false);
+        outputTable->horizontalHeader()->setVisible(true);
         outputTable->verticalHeader()->setVisible(true);
         inputTable = new QTableWidget(SingleForcast);
         inputTable->setObjectName(QStringLiteral("inputTable"));
         inputTable->setGeometry(QRect(10, 270, 351, 201));
-        inputTable->horizontalHeader()->setVisible(false);
+        inputTable->horizontalHeader()->setVisible(true);
         inputTable->verticalHeader()->setVisible(true);
         label = new QLabel(SingleForcast);
         label->setObjectName(QStringLiteral("label"));

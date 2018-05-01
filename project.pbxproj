@@ -241,6 +241,51 @@
 					);
 			};
 		};
+		AAAD35752AE73B7240D7CA40 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforcast.cpp";
+			name = "singleforcast.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		BE39A5878C35B3D6AE7A50C7 = {
+			fileRef = "AAAD35752AE73B7240D7CA40";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		3BC081D7B4367FF87EFE479F = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforecastinputwindow.cpp";
+			name = "singleforecastinputwindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		B1D8F9D32987F0D6E672F494 = {
+			fileRef = "3BC081D7B4367FF87EFE479F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		E8F89CC5FC217939FF28C0B7 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/datapreprocesswindow.cpp";
+			name = "datapreprocesswindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		05F2678CA0FF9ED33BD9E6A9 = {
+			fileRef = "E8F89CC5FC217939FF28C0B7";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		1D3E4E98CFB8EF548DFC679D = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_mainwindow.cpp";
@@ -406,10 +451,62 @@
 					);
 			};
 		};
+		884C3454EB363FA66AD0701E = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_singleforcast.cpp";
+			name = "moc_singleforcast.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		BF6B249ACF90556D7D012FD9 = {
+			fileRef = "884C3454EB363FA66AD0701E";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		C0757ADBEAA0D7C1386322C4 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_singleforecastinputwindow.cpp";
+			name = "moc_singleforecastinputwindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		4F9D3FC67BE8B3653B1BC33B = {
+			fileRef = "C0757ADBEAA0D7C1386322C4";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		9E9F69AE98F088CA677A1B99 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/moc_datapreprocesswindow.cpp";
+			name = "moc_datapreprocesswindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		18FEDDEB4717FB64DF4B1A96 = {
+			fileRef = "9E9F69AE98F088CA677A1B99";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		EBB952033A0E185D390CE248 = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_addpropertywindow.h";
 			name = "ui_addpropertywindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		BB2EB92A73E91A7965B25E52 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_datapreprocesswindow.h";
+			name = "ui_datapreprocesswindow.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
@@ -445,6 +542,20 @@
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_mainwindow.h";
 			name = "ui_mainwindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		F735BD6A1162A1FCE8F9306F = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_singleforcast.h";
+			name = "ui_singleforcast.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		F6E48DF3A29BB5A477950051 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/ui_singleforecastinputwindow.h";
+			name = "ui_singleforecastinputwindow.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
@@ -581,6 +692,27 @@
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
+		300BF17F509BB1EC7741BBFC = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforcast.h";
+			name = "singleforcast.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		506BE4982EBD0A6368EAEA3B = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforecastinputwindow.h";
+			name = "singleforecastinputwindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		2B4883E12B2885E1A979CA22 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/datapreprocesswindow.h";
+			name = "datapreprocesswindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
 		76D104859A4B715BC94CCFAF = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/tpapp_server_manage.pro";
@@ -602,6 +734,20 @@
 		};
 		D105694CACE923524DD0E1E4 = {
 			fileRef = "1F2AE88ED6FB661955345823";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		687343CE38BA3F667E0C7D84 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/datapreprocesswindow.ui";
+			name = "datapreprocesswindow.ui";
+			sourceTree = "<absolute>";
+		};
+		446FB835970DA7E1A598451F = {
+			fileRef = "687343CE38BA3F667E0C7D84";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
@@ -678,6 +824,34 @@
 					);
 			};
 		};
+		2C956160F47C898A3D636A9D = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforcast.ui";
+			name = "singleforcast.ui";
+			sourceTree = "<absolute>";
+		};
+		7C8B188D798B9807006492FB = {
+			fileRef = "2C956160F47C898A3D636A9D";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		5BECA032B370968AC2A9D080 = {
+			isa = PBXFileReference;
+			path = "/Users/hubohao/Desktop/tpapp_server_manage/singleforecastinputwindow.ui";
+			name = "singleforecastinputwindow.ui";
+			sourceTree = "<absolute>";
+		};
+		B8B477CA722ADDCE35F4FAD1 = {
+			fileRef = "5BECA032B370968AC2A9D080";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
 		C0E8CBB3A95D6B55F0183521 = {
 			isa = PBXFileReference;
 			path = "/Users/hubohao/Desktop/tpapp_server_manage/statisticswindow.ui";
@@ -748,12 +922,18 @@
 				"461379D424408C488594469A",
 				"21BC76BD3C722C032972EA93",
 				"01F12AAA3442A80A2FABA5D6",
+				"884C3454EB363FA66AD0701E",
+				"C0757ADBEAA0D7C1386322C4",
+				"9E9F69AE98F088CA677A1B99",
 				"EBB952033A0E185D390CE248",
+				"BB2EB92A73E91A7965B25E52",
 				"35AD1549BAC52A3474804080",
 				"84C56CC96C6F0253157DC8F8",
 				"489D0CCED632657F1EA53058",
 				"5D2A2A6B20D0D60FB8FA78C0",
 				"225408536E45DF373C31DF4A",
+				"F735BD6A1162A1FCE8F9306F",
+				"F6E48DF3A29BB5A477950051",
 				"966DA75A18B81F743603FC1C",
 				"CF9D73E81B96B7B77EB29311",
 				"67AF8C91847257DA92E47CAB",
@@ -787,6 +967,9 @@
 				"16F739CB3528705E264C3355",
 				"B4B550E58E0C609BAB354EBF",
 				"DF37F03372CECA50D4BB0388",
+				"AAAD35752AE73B7240D7CA40",
+				"3BC081D7B4367FF87EFE479F",
+				"E8F89CC5FC217939FF28C0B7",
 				"E2A31CDBFA6DF5CECDE64708",
 				"B1A5BA12EABE1363CFC0643E",
 				"47E4BCA6D9B05D0665FC901B",
@@ -800,7 +983,10 @@
 				"5ED4163609277413696918DE",
 				"4E5747FE8A3E1B6F42EB8DB6",
 				"29B9F3B6E01BD914564429FE",
-				"A37D6FF71169B76A67321CB4");
+				"A37D6FF71169B76A67321CB4",
+				"300BF17F509BB1EC7741BBFC",
+				"506BE4982EBD0A6368EAEA3B",
+				"2B4883E12B2885E1A979CA22");
 			name = "Sources";
 			sourceTree = "<group>";
 		};
@@ -808,11 +994,14 @@
 			isa = PBXGroup;
 			children = (
 				"1F2AE88ED6FB661955345823",
+				"687343CE38BA3F667E0C7D84",
 				"05ACC8947B91DBE7EB2691C7",
 				"FA1D32100A82375C75FB9EAA",
 				"1C91E71CE56093A5523C83F9",
 				"3422E2ABE2541C6B62C32A40",
 				"981B3529BBC3F60E7F2820E3",
+				"2C956160F47C898A3D636A9D",
+				"5BECA032B370968AC2A9D080",
 				"C0E8CBB3A95D6B55F0183521",
 				"C04AD710308465975BA6EE37",
 				"66CB46D153663E5F22D1779D",
@@ -857,6 +1046,9 @@
 				"212A50CC1B6B245D7CF9D52C",
 				"1C54B7F22A7E9E119703F478",
 				"124A15D35BA4D83C108512B4",
+				"BE39A5878C35B3D6AE7A50C7",
+				"B1D8F9D32987F0D6E672F494",
+				"05F2678CA0FF9ED33BD9E6A9",
 				"40D47DA6A7AFEBD80036D8DD",
 				"0AF8D83EB136ADA2250D5B10",
 				"4E5165578E6530BBFD91DEA9",
@@ -867,7 +1059,10 @@
 				"DFAAAC467A1A51B77050838F",
 				"3F812DCF206A5F318241AC73",
 				"0E44AFD7A61A056EB140B5E1",
-				"5266916B05FF0E22532F2C3A");
+				"5266916B05FF0E22532F2C3A",
+				"BF6B249ACF90556D7D012FD9",
+				"4F9D3FC67BE8B3653B1BC33B",
+				"18FEDDEB4717FB64DF4B1A96");
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Compile Sources";
