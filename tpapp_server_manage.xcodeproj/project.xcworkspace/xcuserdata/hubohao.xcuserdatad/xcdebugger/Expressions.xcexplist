@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SingleForecastInputWindow::start():singleforecastinputwindow.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "outputs[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NeuralNet::BPNeuralNet::forecastData(std::__1::vector&lt;double, std::__1::allocator&lt;double&gt; &gt; const&amp;):BPNeuralNet.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "input_set">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -26,6 +26,10 @@ namespace dataProcess {
         ConinuousDataForcast(const std::vector<double> &data, const ConinuousDataForcastArgSet set);
         std::vector<double> getData();
         ConinuousDataForcastArgSet getArgSet();
+        static std::vector<double> processData(const std::vector<double> &data, const ConinuousDataForcastArgSet set);
+        static ConinuousDataForcastArgSet processData(std::vector<double> &data);
+        static double pre_processData(const double data, const ConinuousDataForcastArgSet set);
+        static double aft_processData(const double data, const ConinuousDataForcastArgSet set);
     };
     
     struct DisperseDataForcastArgSet {

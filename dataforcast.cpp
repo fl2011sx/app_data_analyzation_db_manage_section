@@ -4,11 +4,42 @@
 using dataProcess::ConinuousDataForcast;
 
 ConinuousDataForcast::ConinuousDataForcast(const std::vector<double> &data): data(data), const1(0), const2(1) {
+    for (auto tmp : data) {
+        printf("***********%lf\t", tmp);
+    }
     forcastData();
 }
 
 ConinuousDataForcast::ConinuousDataForcast(const std::vector<double> &data, const ConinuousDataForcastArgSet set): data(data), const1(set.const1), const2(set.const2) {
     restoreData();
+}
+
+dataProcess::ConinuousDataForcastArgSet ConinuousDataForcast::processData(std::vector<double> &data) {
+    double max = *std::max_element(data.begin(), data.end());
+    double min = *std::min_element(data.begin(), data.end());
+    // 计算常数1
+    // const1 = min
+    double const1 = min;
+    // 计算常数2
+    // const2 = max - min
+    double const2 = max - min;
+    // 处理数据
+    // newdata = (data-const1)/const2
+    for (std::vector<double>::iterator iter = data.begin(); iter != data.end(); iter++) {
+        *iter -= const1;
+        *iter /= const2;
+    }
+    dataProcess::ConinuousDataForcastArgSet set;
+    set.const1 = const1;
+    set.const2 = const2;
+    return set;
+}
+
+double ConinuousDataForcast::pre_processData(const double data, const ConinuousDataForcastArgSet set) {
+    return (data - set.const1) / set.const2;
+}
+double ConinuousDataForcast::aft_processData(const double data, const ConinuousDataForcastArgSet set) {
+    return data * set.const2 + set.const1;
 }
 
 void ConinuousDataForcast::forcastData() {
@@ -45,6 +76,14 @@ dataProcess::ConinuousDataForcastArgSet ConinuousDataForcast::getArgSet() {
     set.const1 = const1;
     set.const2 = const2;
     return set;
+}
+
+std::vector<double> ConinuousDataForcast::processData(const std::vector<double> &data, const ConinuousDataForcastArgSet set) {
+    std::vector<double> res;
+    for (std::vector<double>::const_iterator iter = data.begin(); iter != data.end(); iter++) {
+        res.push_back((*iter - set.const1) / set.const2);
+    }
+    return res;
 }
 
 using dataProcess::DisperseDataForcast;

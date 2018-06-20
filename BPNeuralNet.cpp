@@ -7,6 +7,7 @@
 
 #include "BPNeuralNet.hpp"
 #include <ctime>
+#include "dataforcast.hpp"
 
 using NeuralNet::Matrix;
 
@@ -380,9 +381,10 @@ bool BPNeuralNet::train(const unsigned int times) {
 std::vector<double> BPNeuralNet::forecastData(const std::vector<double> &input) {
     double *ouputData = new double[outputCount];
     double *inputData = new double[inputCount];
-    for (unsigned i = 0; i < inputCount; i++) {
+    for (unsigned i = 0; i < input.size(); i++) {
         inputData[i] = input.at(i);
     }
+    
     net.forcastData(inputData, ouputData);
     std::vector<double> ouput(ouputData, ouputData + outputCount);
     delete [] ouputData;

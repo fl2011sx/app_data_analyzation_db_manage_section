@@ -12,6 +12,7 @@
 #include <cstdio>
 #include <vector>
 #include <map>
+#include "dataforcast.hpp"
 
 namespace NeuralNet {
     double sigmoid(double x);
@@ -118,6 +119,7 @@ namespace NeuralNet {
         std::map<std::vector<double>, std::vector<double>> data;
         unsigned inputCount;
         unsigned outputCount;
+        dataProcess::ConinuousDataForcastArgSet input_set, output_set;
         
     public:
         BPNeuralNet(

@@ -5,6 +5,7 @@
 #include <vector>
 #include "global.hpp"
 #include "MainFunctions.hpp"
+#include "dataforcast.hpp"
 
 namespace Ui {
 class SingleForecastInputWindow;
@@ -22,6 +23,7 @@ private:
     Ui::SingleForecastInputWindow *ui;
     std::vector<std::string> inputPros;
     std::vector<std::string> outputPros;
+//    dataProcess::ConinuousDataForcastArgSet *input_sets, output_sets;
     
 private slots:
     void start();
