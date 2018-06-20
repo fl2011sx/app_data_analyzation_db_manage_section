@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui -> displayView -> setEditTriggers(QAbstractItemView::NoEditTriggers);
     
+    setWindowTitle("移动APP用户行为偏好分析系统");
+    ui -> debugTest -> setHidden(true);
+    
     connect(ui -> showUserBtn, SIGNAL(clicked()), this, SLOT(showUser()));
     connect(ui -> userManageBtn, SIGNAL(clicked()), this, SLOT(showUserManageWindow()));
     connect(ui -> debugTest, SIGNAL(clicked()), this, SLOT(debugTest()));

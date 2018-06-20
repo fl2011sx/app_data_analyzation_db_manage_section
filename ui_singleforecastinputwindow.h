@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'singleforecastinputwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,7 +43,8 @@ public:
         outputTable->setObjectName(QStringLiteral("outputTable"));
         outputTable->setGeometry(QRect(280, 10, 191, 311));
         outputTable->horizontalHeader()->setVisible(false);
-        outputTable->verticalHeader()->setVisible(false);
+        outputTable->horizontalHeader()->setHighlightSections(false);
+        outputTable->verticalHeader()->setVisible(true);
 
         retranslateUi(SingleForecastInputWindow);
 
@@ -52,8 +53,8 @@ public:
 
     void retranslateUi(QWidget *SingleForecastInputWindow)
     {
-        SingleForecastInputWindow->setWindowTitle(QApplication::translate("SingleForecastInputWindow", "Form", 0));
-        startBtn->setText(QApplication::translate("SingleForecastInputWindow", "\345\274\200\345\247\213\351\242\204\346\265\213", 0));
+        SingleForecastInputWindow->setWindowTitle(QApplication::translate("SingleForecastInputWindow", "Form", nullptr));
+        startBtn->setText(QApplication::translate("SingleForecastInputWindow", "\345\274\200\345\247\213\351\242\204\346\265\213", nullptr));
     } // retranslateUi
 
 };

@@ -2,7 +2,7 @@
 import pymysql as mysql
 class Database:
     def __init__(self, addr, user, psw, dbName):
-        self.dbName = dbName;
+        self.dbName = dbName
         self.db = mysql.Connect(addr, user, psw, dbName)
         self.cur = self.db.cursor()
 

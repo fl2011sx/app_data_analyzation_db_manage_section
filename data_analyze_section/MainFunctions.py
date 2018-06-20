@@ -190,7 +190,7 @@ class UserProcess:
             que += " AND pv_" + pro + ".user_property = \"" + pro + "\""
 
         res = self.db.query(que)
-        data = pd.DataFrame(np.int64(res))
+        data = pd.DataFrame(np.float64(res))
         data.columns = pros
         return data
 
@@ -204,6 +204,7 @@ class UserProcess:
         if len(pros) < 2:
             return
         data = self.__matrix_user_pro(pros)
+        print(data.corr())
         return data.corr()
 
     #0-1属性因变量的自变量筛选

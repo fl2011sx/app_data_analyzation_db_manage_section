@@ -51,8 +51,11 @@
    <attribute name="horizontalHeaderVisible">
     <bool>false</bool>
    </attribute>
-   <attribute name="verticalHeaderVisible">
+   <attribute name="horizontalHeaderHighlightSections">
     <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
    </attribute>
   </widget>
  </widget>

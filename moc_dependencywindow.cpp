@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'dependencywindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,12 +12,14 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'dependencywindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.7.0. It"
+#error "This file was generated using the moc from 5.10.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_dependencyWindow_t {
     QByteArrayData data[6];
     char stringdata0[64];
@@ -86,9 +88,9 @@ void dependencyWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     Q_UNUSED(_a);
 }
 
-const QMetaObject dependencyWindow::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject dependencyWindow::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_dependencyWindow.data,
-      qt_meta_data_dependencyWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+      qt_meta_data_dependencyWindow,  qt_static_metacall, nullptr, nullptr}
 };
 
 
@@ -99,9 +101,9 @@ const QMetaObject *dependencyWindow::metaObject() const
 
 void *dependencyWindow::qt_metacast(const char *_clname)
 {
-    if (!_clname) return Q_NULLPTR;
+    if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_dependencyWindow.stringdata0))
-        return static_cast<void*>(const_cast< dependencyWindow*>(this));
+        return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
@@ -121,4 +123,5 @@ int dependencyWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     }
     return _id;
 }
+QT_WARNING_POP
 QT_END_MOC_NAMESPACE

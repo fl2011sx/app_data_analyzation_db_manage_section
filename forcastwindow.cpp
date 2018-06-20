@@ -9,6 +9,7 @@ forcastWindow::forcastWindow(QWidget *parent) :
     ui->setupUi(this);
     
     setWindowTitle("数值预测");
+    ui -> debugTest -> setHidden(true);
     
     connect(ui -> singleForcastBtn, &QPushButton::clicked, this, &forcastWindow::showSingleForcast);
 }

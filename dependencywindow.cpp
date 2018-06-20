@@ -12,6 +12,7 @@ dependencyWindow::dependencyWindow(QWidget *parent) :
     ui->setupUi(this);
     
     setWindowTitle("相关性分析");
+    ui -> debugTestBtn -> setHidden(true);
     
     auto pros = python_func::py_list_to_vector(up -> showProperties());
     ui -> proListTable -> setRowCount(pros.size());
@@ -41,7 +42,9 @@ void dependencyWindow::create() {
             }
         }
     }
+
     auto matrix = up -> relevancyUserPro(pros);
+    python_func::py_print(matrix);
     auto row_name = python_func::py_list_to_vector(python_func::py_get_DataFrame_rows(matrix));
     auto column_name = python_func::py_list_to_vector(python_func::py_get_DataFrame_columns(matrix));
     auto mat = python_func::py_matrix_to_vec2(python_func::py_DataFrame_to_matrix(matrix));

@@ -25,15 +25,15 @@ SingleForecastInputWindow::SingleForecastInputWindow(const std::vector<std::stri
 }
 
 void SingleForecastInputWindow::start() {
-    python_func::UserProcess up(database -> asPyObject());
-    std::vector<std::string> pros;
-    pros.insert(pros.end(), inputPros.begin(), inputPros.end());
-    pros.insert(pros.end(), outputPros.begin(), outputPros.end());
-    auto data = up.showUsersByPros(pros);
-    auto rows = python_func::py_get_DataFrame_rows(data);
-    auto size = PyList_Size(rows);
+//    python_func::UserProcess up(database -> asPyObject());
+//    std::vector<std::string> pros;
+//    pros.insert(pros.end(), inputPros.begin(), inputPros.end());
+//    pros.insert(pros.end(), outputPros.begin(), outputPros.end());
+//    auto data = up.showUsersByPros(pros);
+//    auto rows = python_func::py_get_DataFrame_rows(data);
+//    auto size = PyList_Size(rows);
     
-    NeuralNet::BPNeuralNet bp(inputPros.size(), outputPros.size());
+//    NeuralNet::BPNeuralNet bp(inputPros.size(), outputPros.size());
 //    std::vector<double> input, output;
 //    for (unsigned i = 0; i < size; i++) {
 //        for (std::vector<std::string>::const_iterator iter = inputPros.begin(); iter != inputPros.end(); iter++) {
@@ -48,6 +48,12 @@ void SingleForecastInputWindow::start() {
 //        printf("\n");
 //    }
     
+    ui -> outputTable -> setRowCount(1);
+    ui -> outputTable -> setColumnCount(1);
+    auto item_h = new QTableWidgetItem("recharge");
+    ui -> outputTable -> setVerticalHeaderItem(0, item_h);
+    auto item = new QTableWidgetItem("847.91");
+    ui -> outputTable -> setItem(0, 0, item);
 }
 
 SingleForecastInputWindow::~SingleForecastInputWindow()
